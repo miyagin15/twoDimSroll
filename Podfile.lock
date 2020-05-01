@@ -1,0 +1,16 @@
+PODS:
+  - SwiftFormat/CLI (0.42.0)
+
+DEPENDENCIES:
+  - SwiftFormat/CLI
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftFormat
+
+SPEC CHECKSUMS:
+  SwiftFormat: 5faa819600268dfaa5c19f1359730883db151678
+
+PODFILE CHECKSUM: 03126fe2375641e3a1953076534e71094755f1b0
+
+COCOAPODS: 1.6.1

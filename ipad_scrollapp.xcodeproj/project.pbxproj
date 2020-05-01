@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E0AB8252394F35A00C8F2D0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */; };
+		5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */; };
+		5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */; };
+		5E21C6B823C3130F0040767A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21C6B723C3130F0040767A /* Utility.swift */; };
+		5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC571238BB13E0012A8AD /* AppDelegate.swift */; };
+		5E2DC574238BB13E0012A8AD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC573238BB13E0012A8AD /* art.scnassets */; };
+		5E2DC576238BB13E0012A8AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC575238BB13E0012A8AD /* ViewController.swift */; };
+		5E2DC579238BB13E0012A8AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC577238BB13E0012A8AD /* Main.storyboard */; };
+		5E2DC57B238BB1410012A8AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC57A238BB1410012A8AD /* Assets.xcassets */; };
+		5E2DC57E238BB1410012A8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC57C238BB1410012A8AD /* LaunchScreen.storyboard */; };
+		5E2DC589238BB1410012A8AD /* ipad_scrollappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC588238BB1410012A8AD /* ipad_scrollappTests.swift */; };
+		5E2DC594238BB1410012A8AD /* ipad_scrollappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */; };
+		684E2C8AA591A88248009CC2 /* Pods_ipad_scrollappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */; };
+		6F40FD59C5DE2025AB739259 /* Pods_ipad_scrollappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E2DC585238BB1410012A8AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2DC566238BB13E0012A8AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2DC56D238BB13E0012A8AD;
+			remoteInfo = ipad_scrollapp;
+		};
+		5E2DC590238BB1410012A8AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2DC566238BB13E0012A8AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2DC56D238BB13E0012A8AD;
+			remoteInfo = ipad_scrollapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3AC957CB8BC0FCF8612E9E49 /* Pods-ipad_scrollapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollapp.debug.xcconfig"; path = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.debug.xcconfig"; sourceTree = "<group>"; };
+		499AA693E62E5B22BF5E5E9A /* Pods-ipad_scrollappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappTests.release.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalViewController.swift; sourceTree = "<group>"; };
+		5E21C6B723C3130F0040767A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipad_scroll_horizon1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2DC571238BB13E0012A8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5E2DC573238BB13E0012A8AD /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		5E2DC575238BB13E0012A8AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E2DC578238BB13E0012A8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5E2DC57A238BB1410012A8AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E2DC57D238BB1410012A8AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5E2DC57F238BB1410012A8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2DC584238BB1410012A8AD /* ipad_scrollappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ipad_scrollappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2DC588238BB1410012A8AD /* ipad_scrollappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipad_scrollappTests.swift; sourceTree = "<group>"; };
+		5E2DC58A238BB1410012A8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2DC58F238BB1410012A8AD /* ipad_scrollappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ipad_scrollappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipad_scrollappUITests.swift; sourceTree = "<group>"; };
+		5E2DC595238BB1410012A8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipad_scrollappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		649228DFB5586FAFD745E6FF /* Pods-ipad_scrollappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappTests.debug.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		890D7E8C29BC24D1E9F3E89B /* Pods-ipad_scrollapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollapp.release.xcconfig"; path = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.release.xcconfig"; sourceTree = "<group>"; };
+		AE890EB32FEA0B5F50274BCB /* Pods_ipad_scrollapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipad_scrollapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4ADFB14EE3A65430F742EF2 /* Pods-ipad_scrollappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappUITests.release.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CF4837D3C8C04E7DA0B8DE7F /* Pods-ipad_scrollappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappUITests.debug.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipad_scrollappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E2DC56B238BB13E0012A8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC581238BB1410012A8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F40FD59C5DE2025AB739259 /* Pods_ipad_scrollappTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC58C238BB1410012A8AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				684E2C8AA591A88248009CC2 /* Pods_ipad_scrollappUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17214C59D811627B71393E1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AC957CB8BC0FCF8612E9E49 /* Pods-ipad_scrollapp.debug.xcconfig */,
+				890D7E8C29BC24D1E9F3E89B /* Pods-ipad_scrollapp.release.xcconfig */,
+				649228DFB5586FAFD745E6FF /* Pods-ipad_scrollappTests.debug.xcconfig */,
+				499AA693E62E5B22BF5E5E9A /* Pods-ipad_scrollappTests.release.xcconfig */,
+				CF4837D3C8C04E7DA0B8DE7F /* Pods-ipad_scrollappUITests.debug.xcconfig */,
+				B4ADFB14EE3A65430F742EF2 /* Pods-ipad_scrollappUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5E2DC565238BB13E0012A8AD = {
+			isa = PBXGroup;
+			children = (
+				5E2DC570238BB13E0012A8AD /* ipad_scrollapp */,
+				5E2DC587238BB1410012A8AD /* ipad_scrollappTests */,
+				5E2DC592238BB1410012A8AD /* ipad_scrollappUITests */,
+				5E2DC56F238BB13E0012A8AD /* Products */,
+				17214C59D811627B71393E1A /* Pods */,
+				EF7B0CF3E9F9F6CB37776CE2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5E2DC56F238BB13E0012A8AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */,
+				5E2DC584238BB1410012A8AD /* ipad_scrollappTests.xctest */,
+				5E2DC58F238BB1410012A8AD /* ipad_scrollappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E2DC570238BB13E0012A8AD /* ipad_scrollapp */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DC571238BB13E0012A8AD /* AppDelegate.swift */,
+				5E2DC573238BB13E0012A8AD /* art.scnassets */,
+				5E2DC575238BB13E0012A8AD /* ViewController.swift */,
+				5E21C6B723C3130F0040767A /* Utility.swift */,
+				5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */,
+				5E2DC577238BB13E0012A8AD /* Main.storyboard */,
+				5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */,
+				5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */,
+				5E2DC57A238BB1410012A8AD /* Assets.xcassets */,
+				5E2DC57C238BB1410012A8AD /* LaunchScreen.storyboard */,
+				5E2DC57F238BB1410012A8AD /* Info.plist */,
+			);
+			path = ipad_scrollapp;
+			sourceTree = "<group>";
+		};
+		5E2DC587238BB1410012A8AD /* ipad_scrollappTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DC588238BB1410012A8AD /* ipad_scrollappTests.swift */,
+				5E2DC58A238BB1410012A8AD /* Info.plist */,
+			);
+			path = ipad_scrollappTests;
+			sourceTree = "<group>";
+		};
+		5E2DC592238BB1410012A8AD /* ipad_scrollappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */,
+				5E2DC595238BB1410012A8AD /* Info.plist */,
+			);
+			path = ipad_scrollappUITests;
+			sourceTree = "<group>";
+		};
+		EF7B0CF3E9F9F6CB37776CE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE890EB32FEA0B5F50274BCB /* Pods_ipad_scrollapp.framework */,
+				D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */,
+				63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E2DC56D238BB13E0012A8AD /* ipad_scrollapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2DC598238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollapp" */;
+			buildPhases = (
+				5C38505B9131073D31A47E67 /* [CP] Check Pods Manifest.lock */,
+				5E2DC56A238BB13E0012A8AD /* Sources */,
+				5E2DC56B238BB13E0012A8AD /* Frameworks */,
+				5E2DC56C238BB13E0012A8AD /* Resources */,
+				5E21C6B523A8571E0040767A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ipad_scrollapp;
+			productName = ipad_scrollapp;
+			productReference = 5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E2DC583238BB1410012A8AD /* ipad_scrollappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2DC59B238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollappTests" */;
+			buildPhases = (
+				AE8BA2867016D2C6A623B614 /* [CP] Check Pods Manifest.lock */,
+				5E2DC580238BB1410012A8AD /* Sources */,
+				5E2DC581238BB1410012A8AD /* Frameworks */,
+				5E2DC582238BB1410012A8AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E2DC586238BB1410012A8AD /* PBXTargetDependency */,
+			);
+			name = ipad_scrollappTests;
+			productName = ipad_scrollappTests;
+			productReference = 5E2DC584238BB1410012A8AD /* ipad_scrollappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5E2DC58E238BB1410012A8AD /* ipad_scrollappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2DC59E238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollappUITests" */;
+			buildPhases = (
+				FAACCBCC5545EF2FD12568A1 /* [CP] Check Pods Manifest.lock */,
+				5E2DC58B238BB1410012A8AD /* Sources */,
+				5E2DC58C238BB1410012A8AD /* Frameworks */,
+				5E2DC58D238BB1410012A8AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E2DC591238BB1410012A8AD /* PBXTargetDependency */,
+			);
+			name = ipad_scrollappUITests;
+			productName = ipad_scrollappUITests;
+			productReference = 5E2DC58F238BB1410012A8AD /* ipad_scrollappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E2DC566238BB13E0012A8AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = com.miyagin.ipad_scroll;
+				TargetAttributes = {
+					5E2DC56D238BB13E0012A8AD = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					5E2DC583238BB1410012A8AD = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 5E2DC56D238BB13E0012A8AD;
+					};
+					5E2DC58E238BB1410012A8AD = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 5E2DC56D238BB13E0012A8AD;
+					};
+				};
+			};
+			buildConfigurationList = 5E2DC569238BB13E0012A8AD /* Build configuration list for PBXProject "ipad_scrollapp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5E2DC565238BB13E0012A8AD;
+			productRefGroup = 5E2DC56F238BB13E0012A8AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E2DC56D238BB13E0012A8AD /* ipad_scrollapp */,
+				5E2DC583238BB1410012A8AD /* ipad_scrollappTests */,
+				5E2DC58E238BB1410012A8AD /* ipad_scrollappUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E2DC56C238BB13E0012A8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2DC574238BB13E0012A8AD /* art.scnassets in Resources */,
+				5E2DC57E238BB1410012A8AD /* LaunchScreen.storyboard in Resources */,
+				5E2DC57B238BB1410012A8AD /* Assets.xcassets in Resources */,
+				5E2DC579238BB13E0012A8AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC582238BB1410012A8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC58D238BB1410012A8AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C38505B9131073D31A47E67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ipad_scrollapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E21C6B523A8571E0040767A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" . \n";
+		};
+		AE8BA2867016D2C6A623B614 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ipad_scrollappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAACCBCC5545EF2FD12568A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ipad_scrollappUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E2DC56A238BB13E0012A8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2DC576238BB13E0012A8AD /* ViewController.swift in Sources */,
+				5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */,
+				5E21C6B823C3130F0040767A /* Utility.swift in Sources */,
+				5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */,
+				5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */,
+				5E0AB8252394F35A00C8F2D0 /* CollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC580238BB1410012A8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2DC589238BB1410012A8AD /* ipad_scrollappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E2DC58B238BB1410012A8AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2DC594238BB1410012A8AD /* ipad_scrollappUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E2DC586238BB1410012A8AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2DC56D238BB13E0012A8AD /* ipad_scrollapp */;
+			targetProxy = 5E2DC585238BB1410012A8AD /* PBXContainerItemProxy */;
+		};
+		5E2DC591238BB1410012A8AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2DC56D238BB13E0012A8AD /* ipad_scrollapp */;
+			targetProxy = 5E2DC590238BB1410012A8AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5E2DC577238BB13E0012A8AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E2DC578238BB13E0012A8AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5E2DC57C238BB1410012A8AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E2DC57D238BB1410012A8AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5E2DC596238BB1410012A8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5E2DC597238BB1410012A8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E2DC599238BB1410012A8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC957CB8BC0FCF8612E9E49 /* Pods-ipad_scrollapp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.depth;
+				PRODUCT_NAME = ipad_scroll_horizon1;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E2DC59A238BB1410012A8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 890D7E8C29BC24D1E9F3E89B /* Pods-ipad_scrollapp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.depth;
+				PRODUCT_NAME = ipad_scroll_horizon1;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5E2DC59C238BB1410012A8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649228DFB5586FAFD745E6FF /* Pods-ipad_scrollappTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollappTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miyagin.ipad-scroll.ipad-scrollappTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipad_scrollapp.app/ipad_scrollapp";
+			};
+			name = Debug;
+		};
+		5E2DC59D238BB1410012A8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 499AA693E62E5B22BF5E5E9A /* Pods-ipad_scrollappTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollappTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miyagin.ipad-scroll.ipad-scrollappTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ipad_scrollapp.app/ipad_scrollapp";
+			};
+			name = Release;
+		};
+		5E2DC59F238BB1410012A8AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF4837D3C8C04E7DA0B8DE7F /* Pods-ipad_scrollappUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miyagin.ipad-scroll.ipad-scrollappUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ipad_scrollapp;
+			};
+			name = Debug;
+		};
+		5E2DC5A0238BB1410012A8AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4ADFB14EE3A65430F742EF2 /* Pods-ipad_scrollappUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				INFOPLIST_FILE = ipad_scrollappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.miyagin.ipad-scroll.ipad-scrollappUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ipad_scrollapp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E2DC569238BB13E0012A8AD /* Build configuration list for PBXProject "ipad_scrollapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2DC596238BB1410012A8AD /* Debug */,
+				5E2DC597238BB1410012A8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E2DC598238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2DC599238BB1410012A8AD /* Debug */,
+				5E2DC59A238BB1410012A8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E2DC59B238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2DC59C238BB1410012A8AD /* Debug */,
+				5E2DC59D238BB1410012A8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E2DC59E238BB1410012A8AD /* Build configuration list for PBXNativeTarget "ipad_scrollappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2DC59F238BB1410012A8AD /* Debug */,
+				5E2DC5A0238BB1410012A8AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E2DC566238BB13E0012A8AD /* Project object */;
+}

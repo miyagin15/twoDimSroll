@@ -1,0 +1,867 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3ABF02AB6CA0DED2E5548BFF37AAA132 /* SwiftFormat */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DF0BEF05633DB7D1D69C28F066DA9EEB /* Build configuration list for PBXAggregateTarget "SwiftFormat" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftFormat;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1FFBE548C6F2F44CEBE70EA93CF86DF4 /* Pods-ipad_scrollappTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1607057A06420368A846456F05E23632 /* Pods-ipad_scrollappTests-dummy.m */; };
+		5D165139BCB5D621258AD54F70D72D7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		875DCAE3E1BD437FEB85E7356BD8D1BF /* Pods-ipad_scrollappUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C37499E8976B07B22D026C754D941F05 /* Pods-ipad_scrollappUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A82A052B38EE08012BF369FDC31D09A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		AD47CBC53AD20059BF3356E0F8A350A7 /* Pods-ipad_scrollappTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 23408E32E17B9DAA3E300597E772BBDA /* Pods-ipad_scrollappTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E26072B8879DC4D9698872F2E426E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		D949D5AF33BF00A6C1BF941C5E000093 /* Pods-ipad_scrollappUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6353735EB51256316018F330D1EC9E46 /* Pods-ipad_scrollappUITests-dummy.m */; };
+		E4AF2A1243A63E575498C5884FFF1222 /* Pods-ipad_scrollapp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC8B0D96D2D8D202EFDCB1C5CE1E05B /* Pods-ipad_scrollapp-dummy.m */; };
+		F9C2BE7E08CB0F164AA3B4F2C19A8971 /* Pods-ipad_scrollapp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE8D2498760A7B9E31472E3DBF547D08 /* Pods-ipad_scrollapp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BBD56109E7F9A2E410E66EFBA6CB72C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E1AED1A8F080B2546A1EB7BE3BEC4F;
+			remoteInfo = "Pods-ipad_scrollapp";
+		};
+		C15D720E3FA4652BDB7B31DC9161BD72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E1AED1A8F080B2546A1EB7BE3BEC4F;
+			remoteInfo = "Pods-ipad_scrollapp";
+		};
+		F232E85DFDFA79C126629CAA4A51C8DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ABF02AB6CA0DED2E5548BFF37AAA132;
+			remoteInfo = SwiftFormat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C869C78A7448AA816896102EB2D13E5 /* Pods-ipad_scrollapp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollapp-acknowledgements.plist"; sourceTree = "<group>"; };
+		1607057A06420368A846456F05E23632 /* Pods-ipad_scrollappTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ipad_scrollappTests-dummy.m"; sourceTree = "<group>"; };
+		23408E32E17B9DAA3E300597E772BBDA /* Pods-ipad_scrollappTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ipad_scrollappTests-umbrella.h"; sourceTree = "<group>"; };
+		3015D11FA8B70503E4E3D289F48CB491 /* Pods-ipad_scrollappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollappTests.release.xcconfig"; sourceTree = "<group>"; };
+		3AD1D4984EB5E861E4705F83160B8A9C /* Pods-ipad_scrollapp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ipad_scrollapp.modulemap"; sourceTree = "<group>"; };
+		47814E0E313416FA7B37DDD12FF0F6A0 /* Pods-ipad_scrollappTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ipad_scrollappTests.modulemap"; sourceTree = "<group>"; };
+		5DE5D2D49252DA74C0FAA3DBD3942D22 /* Pods-ipad_scrollapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollapp.debug.xcconfig"; sourceTree = "<group>"; };
+		6353735EB51256316018F330D1EC9E46 /* Pods-ipad_scrollappUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ipad_scrollappUITests-dummy.m"; sourceTree = "<group>"; };
+		64E94BB472834AD90A12CED36DF968AF /* Pods-ipad_scrollapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollapp.release.xcconfig"; sourceTree = "<group>"; };
+		6B9C47B872516C9C3BAD7F14EFE650BA /* Pods-ipad_scrollappUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ipad_scrollappUITests.modulemap"; sourceTree = "<group>"; };
+		778AE32ADFF53C11DB7D767A58CD64BF /* Pods_ipad_scrollapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ipad_scrollapp.framework; path = "Pods-ipad_scrollapp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82F5D05798B9A66FEBDB71863E45EA2B /* Pods_ipad_scrollappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ipad_scrollappTests.framework; path = "Pods-ipad_scrollappTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EAE20D23918A3FDBF9A6D26A671D8C2 /* Pods-ipad_scrollappUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollappUITests-Info.plist"; sourceTree = "<group>"; };
+		A34CCCAA2471959A80DFCB08649350FD /* Pods-ipad_scrollappTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ipad_scrollappTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A8F987076477B0FAEAB1DBD3EA57C358 /* Pods-ipad_scrollapp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ipad_scrollapp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AC19F677061A9D915F6C4A6044B3AB05 /* Pods-ipad_scrollappUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollappUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B3D1274F25EC468DEE7AE31474C79C34 /* SwiftFormat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.xcconfig; sourceTree = "<group>"; };
+		C0C9717F57808FD256A94587B4B82857 /* Pods_ipad_scrollappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ipad_scrollappUITests.framework; path = "Pods-ipad_scrollappUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1B78909F138CAF8D5979E63EE991439 /* Pods-ipad_scrollappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2F30779847647A510C54041F7F11B0F /* Pods-ipad_scrollappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C37499E8976B07B22D026C754D941F05 /* Pods-ipad_scrollappUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ipad_scrollappUITests-umbrella.h"; sourceTree = "<group>"; };
+		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D23695DBD728EB777C39BBEBE8AD2157 /* Pods-ipad_scrollappTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollappTests-Info.plist"; sourceTree = "<group>"; };
+		DD2AD84028E041112F480D0F487734A5 /* Pods-ipad_scrollappUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ipad_scrollappUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DEC8B0D96D2D8D202EFDCB1C5CE1E05B /* Pods-ipad_scrollapp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ipad_scrollapp-dummy.m"; sourceTree = "<group>"; };
+		DFA7528A566B03D95B41C76E4F54D29B /* Pods-ipad_scrollappTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollappTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EC3ED18732B3E23E6765E37F8835D067 /* Pods-ipad_scrollappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ipad_scrollappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC4824D0895966259620DBABFC39A27C /* Pods-ipad_scrollapp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ipad_scrollapp-Info.plist"; sourceTree = "<group>"; };
+		FE8D2498760A7B9E31472E3DBF547D08 /* Pods-ipad_scrollapp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ipad_scrollapp-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AF96086B447952D7B5D4908DF987825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D165139BCB5D621258AD54F70D72D7D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8582F77A7F88FBF349A9883A2CDAA3E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A82A052B38EE08012BF369FDC31D09A8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7A1A9815E526910F9D6E2E11C6ECF9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5E26072B8879DC4D9698872F2E426E1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E0DBA920DDC8E284D168EA5A7D6E5C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				778AE32ADFF53C11DB7D767A58CD64BF /* Pods_ipad_scrollapp.framework */,
+				82F5D05798B9A66FEBDB71863E45EA2B /* Pods_ipad_scrollappTests.framework */,
+				C0C9717F57808FD256A94587B4B82857 /* Pods_ipad_scrollappUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148924D42F0B989B30887C4BD68CE662 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1274F25EC468DEE7AE31474C79C34 /* SwiftFormat.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftFormat";
+			sourceTree = "<group>";
+		};
+		3D0CA449E9B2C957EC4D48F119E6F27F /* Pods-ipad_scrollappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6B9C47B872516C9C3BAD7F14EFE650BA /* Pods-ipad_scrollappUITests.modulemap */,
+				DD2AD84028E041112F480D0F487734A5 /* Pods-ipad_scrollappUITests-acknowledgements.markdown */,
+				AC19F677061A9D915F6C4A6044B3AB05 /* Pods-ipad_scrollappUITests-acknowledgements.plist */,
+				6353735EB51256316018F330D1EC9E46 /* Pods-ipad_scrollappUITests-dummy.m */,
+				9EAE20D23918A3FDBF9A6D26A671D8C2 /* Pods-ipad_scrollappUITests-Info.plist */,
+				C37499E8976B07B22D026C754D941F05 /* Pods-ipad_scrollappUITests-umbrella.h */,
+				C1B78909F138CAF8D5979E63EE991439 /* Pods-ipad_scrollappUITests.debug.xcconfig */,
+				C2F30779847647A510C54041F7F11B0F /* Pods-ipad_scrollappUITests.release.xcconfig */,
+			);
+			name = "Pods-ipad_scrollappUITests";
+			path = "Target Support Files/Pods-ipad_scrollappUITests";
+			sourceTree = "<group>";
+		};
+		3EC83B7D9084B8A66069CB2B53870FB7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				730F785587EA1361613EBCA71F462AB3 /* Pods-ipad_scrollapp */,
+				FE55092E4197FFE3E567C44401446FF6 /* Pods-ipad_scrollappTests */,
+				3D0CA449E9B2C957EC4D48F119E6F27F /* Pods-ipad_scrollappUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		717E5CB8C36289F022053164054847B2 /* SwiftFormat */ = {
+			isa = PBXGroup;
+			children = (
+				148924D42F0B989B30887C4BD68CE662 /* Support Files */,
+			);
+			name = SwiftFormat;
+			path = SwiftFormat;
+			sourceTree = "<group>";
+		};
+		730F785587EA1361613EBCA71F462AB3 /* Pods-ipad_scrollapp */ = {
+			isa = PBXGroup;
+			children = (
+				3AD1D4984EB5E861E4705F83160B8A9C /* Pods-ipad_scrollapp.modulemap */,
+				A8F987076477B0FAEAB1DBD3EA57C358 /* Pods-ipad_scrollapp-acknowledgements.markdown */,
+				0C869C78A7448AA816896102EB2D13E5 /* Pods-ipad_scrollapp-acknowledgements.plist */,
+				DEC8B0D96D2D8D202EFDCB1C5CE1E05B /* Pods-ipad_scrollapp-dummy.m */,
+				EC4824D0895966259620DBABFC39A27C /* Pods-ipad_scrollapp-Info.plist */,
+				FE8D2498760A7B9E31472E3DBF547D08 /* Pods-ipad_scrollapp-umbrella.h */,
+				5DE5D2D49252DA74C0FAA3DBD3942D22 /* Pods-ipad_scrollapp.debug.xcconfig */,
+				64E94BB472834AD90A12CED36DF968AF /* Pods-ipad_scrollapp.release.xcconfig */,
+			);
+			name = "Pods-ipad_scrollapp";
+			path = "Target Support Files/Pods-ipad_scrollapp";
+			sourceTree = "<group>";
+		};
+		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		9B4BE7EA6762889896D8B43A53BE1AF4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				717E5CB8C36289F022053164054847B2 /* SwiftFormat */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				9B4BE7EA6762889896D8B43A53BE1AF4 /* Pods */,
+				0E0DBA920DDC8E284D168EA5A7D6E5C9 /* Products */,
+				3EC83B7D9084B8A66069CB2B53870FB7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE55092E4197FFE3E567C44401446FF6 /* Pods-ipad_scrollappTests */ = {
+			isa = PBXGroup;
+			children = (
+				47814E0E313416FA7B37DDD12FF0F6A0 /* Pods-ipad_scrollappTests.modulemap */,
+				A34CCCAA2471959A80DFCB08649350FD /* Pods-ipad_scrollappTests-acknowledgements.markdown */,
+				DFA7528A566B03D95B41C76E4F54D29B /* Pods-ipad_scrollappTests-acknowledgements.plist */,
+				1607057A06420368A846456F05E23632 /* Pods-ipad_scrollappTests-dummy.m */,
+				D23695DBD728EB777C39BBEBE8AD2157 /* Pods-ipad_scrollappTests-Info.plist */,
+				23408E32E17B9DAA3E300597E772BBDA /* Pods-ipad_scrollappTests-umbrella.h */,
+				EC3ED18732B3E23E6765E37F8835D067 /* Pods-ipad_scrollappTests.debug.xcconfig */,
+				3015D11FA8B70503E4E3D289F48CB491 /* Pods-ipad_scrollappTests.release.xcconfig */,
+			);
+			name = "Pods-ipad_scrollappTests";
+			path = "Target Support Files/Pods-ipad_scrollappTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8E47ACE70E428B79535FAB1A3504CBFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9C2BE7E08CB0F164AA3B4F2C19A8971 /* Pods-ipad_scrollapp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAAE5568B9C9AA57C0C0BDC09F8D325A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				875DCAE3E1BD437FEB85E7356BD8D1BF /* Pods-ipad_scrollappUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F6609ACB0B21C88987EDAC5FAE0125 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD47CBC53AD20059BF3356E0F8A350A7 /* Pods-ipad_scrollappTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		28E1AED1A8F080B2546A1EB7BE3BEC4F /* Pods-ipad_scrollapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1523F1B05D7C8173119F763A5E8856BD /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollapp" */;
+			buildPhases = (
+				8E47ACE70E428B79535FAB1A3504CBFA /* Headers */,
+				7B74C1EA99B4BD2D0D2A987BC6F7E856 /* Sources */,
+				C7A1A9815E526910F9D6E2E11C6ECF9A /* Frameworks */,
+				541222F7504536886EA138CFAEE88AB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A80307C2F08DB9B0D302572805C02AD /* PBXTargetDependency */,
+			);
+			name = "Pods-ipad_scrollapp";
+			productName = "Pods-ipad_scrollapp";
+			productReference = 778AE32ADFF53C11DB7D767A58CD64BF /* Pods_ipad_scrollapp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A9F5BF39B1E341DDDD71622BB5CEFA2B /* Pods-ipad_scrollappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98EDECCE13FAAEF92CC8396C1FA095CF /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollappUITests" */;
+			buildPhases = (
+				AAAE5568B9C9AA57C0C0BDC09F8D325A /* Headers */,
+				C68EEC474773DA4057624D5DEC9C5DB4 /* Sources */,
+				8582F77A7F88FBF349A9883A2CDAA3E0 /* Frameworks */,
+				03688CB29B6C433DF3251478AB2593AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0AF949E6B93159E68563FFE1E82A14E0 /* PBXTargetDependency */,
+			);
+			name = "Pods-ipad_scrollappUITests";
+			productName = "Pods-ipad_scrollappUITests";
+			productReference = C0C9717F57808FD256A94587B4B82857 /* Pods_ipad_scrollappUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1D6CC1C700247146C91D2DEF693D93F /* Pods-ipad_scrollappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5A572E679434E62509C48335F93382 /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollappTests" */;
+			buildPhases = (
+				E4F6609ACB0B21C88987EDAC5FAE0125 /* Headers */,
+				ACF0787BCB5670566D830B2A0337A9EE /* Sources */,
+				5AF96086B447952D7B5D4908DF987825 /* Frameworks */,
+				A3C700F8708825C9853077BE2BF76BDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1B2AFAF37F842E508F35F1E3A2BCE50 /* PBXTargetDependency */,
+			);
+			name = "Pods-ipad_scrollappTests";
+			productName = "Pods-ipad_scrollappTests";
+			productReference = 82F5D05798B9A66FEBDB71863E45EA2B /* Pods_ipad_scrollappTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0E0DBA920DDC8E284D168EA5A7D6E5C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28E1AED1A8F080B2546A1EB7BE3BEC4F /* Pods-ipad_scrollapp */,
+				C1D6CC1C700247146C91D2DEF693D93F /* Pods-ipad_scrollappTests */,
+				A9F5BF39B1E341DDDD71622BB5CEFA2B /* Pods-ipad_scrollappUITests */,
+				3ABF02AB6CA0DED2E5548BFF37AAA132 /* SwiftFormat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03688CB29B6C433DF3251478AB2593AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541222F7504536886EA138CFAEE88AB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C700F8708825C9853077BE2BF76BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B74C1EA99B4BD2D0D2A987BC6F7E856 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4AF2A1243A63E575498C5884FFF1222 /* Pods-ipad_scrollapp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACF0787BCB5670566D830B2A0337A9EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFBE548C6F2F44CEBE70EA93CF86DF4 /* Pods-ipad_scrollappTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C68EEC474773DA4057624D5DEC9C5DB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D949D5AF33BF00A6C1BF941C5E000093 /* Pods-ipad_scrollappUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AF949E6B93159E68563FFE1E82A14E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ipad_scrollapp";
+			target = 28E1AED1A8F080B2546A1EB7BE3BEC4F /* Pods-ipad_scrollapp */;
+			targetProxy = C15D720E3FA4652BDB7B31DC9161BD72 /* PBXContainerItemProxy */;
+		};
+		4A80307C2F08DB9B0D302572805C02AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftFormat;
+			target = 3ABF02AB6CA0DED2E5548BFF37AAA132 /* SwiftFormat */;
+			targetProxy = F232E85DFDFA79C126629CAA4A51C8DA /* PBXContainerItemProxy */;
+		};
+		B1B2AFAF37F842E508F35F1E3A2BCE50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-ipad_scrollapp";
+			target = 28E1AED1A8F080B2546A1EB7BE3BEC4F /* Pods-ipad_scrollapp */;
+			targetProxy = 3BBD56109E7F9A2E410E66EFBA6CB72C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2A738BBB947C4491C948A55F3B0F1436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3D1274F25EC468DEE7AE31474C79C34 /* SwiftFormat.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4DBB263D56B393F4CEA7D26CC1D86C6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3D1274F25EC468DEE7AE31474C79C34 /* SwiftFormat.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58DA69CFA8518FD6E62D39C772080C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		692C218F933AC0A7E46FC50462AE8306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3015D11FA8B70503E4E3D289F48CB491 /* Pods-ipad_scrollappTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6D866D49F0C0BE9696F83A937A2D077B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B78909F138CAF8D5979E63EE991439 /* Pods-ipad_scrollappUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		881D44EE2F3C680B45EC4F4969910DEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2F30779847647A510C54041F7F11B0F /* Pods-ipad_scrollappUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollappUITests/Pods-ipad_scrollappUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C2661589C8ECE3752F0FC0BB20D12FFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E94BB472834AD90A12CED36DF968AF /* Pods-ipad_scrollapp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB97EB9D9B36E73AB2999D3A5E935BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E2B0675D3E9BB83D0D578CB69C521C2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC3ED18732B3E23E6765E37F8835D067 /* Pods-ipad_scrollappTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FE7708FA0064121BBD6903A3633E5D34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DE5D2D49252DA74C0FAA3DBD3942D22 /* Pods-ipad_scrollapp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1523F1B05D7C8173119F763A5E8856BD /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE7708FA0064121BBD6903A3633E5D34 /* Debug */,
+				C2661589C8ECE3752F0FC0BB20D12FFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58DA69CFA8518FD6E62D39C772080C16 /* Debug */,
+				DB97EB9D9B36E73AB2999D3A5E935BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98EDECCE13FAAEF92CC8396C1FA095CF /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D866D49F0C0BE9696F83A937A2D077B /* Debug */,
+				881D44EE2F3C680B45EC4F4969910DEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF0BEF05633DB7D1D69C28F066DA9EEB /* Build configuration list for PBXAggregateTarget "SwiftFormat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A738BBB947C4491C948A55F3B0F1436 /* Debug */,
+				4DBB263D56B393F4CEA7D26CC1D86C6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5A572E679434E62509C48335F93382 /* Build configuration list for PBXNativeTarget "Pods-ipad_scrollappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2B0675D3E9BB83D0D578CB69C521C2C /* Debug */,
+				692C218F933AC0A7E46FC50462AE8306 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_ipad_scrollappTests {
+  umbrella header "Pods-ipad_scrollappTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
