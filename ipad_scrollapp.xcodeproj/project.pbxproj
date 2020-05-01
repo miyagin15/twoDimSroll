@@ -10,6 +10,7 @@
 		5E0AB8252394F35A00C8F2D0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */; };
 		5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */; };
 		5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */; };
+		5E11C421245C14F30025F440 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C420245C14F20025F440 /* DrawView.swift */; };
 		5E21C6B823C3130F0040767A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21C6B723C3130F0040767A /* Utility.swift */; };
 		5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC571238BB13E0012A8AD /* AppDelegate.swift */; };
 		5E2DC574238BB13E0012A8AD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC573238BB13E0012A8AD /* art.scnassets */; };
@@ -46,8 +47,9 @@
 		5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
 		5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalViewController.swift; sourceTree = "<group>"; };
+		5E11C420245C14F20025F440 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		5E21C6B723C3130F0040767A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipad_scroll_horizon1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2DC56E238BB13E0012A8AD /* twoDim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twoDim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2DC571238BB13E0012A8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E2DC573238BB13E0012A8AD /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		5E2DC575238BB13E0012A8AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		5E2DC56F238BB13E0012A8AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */,
+				5E2DC56E238BB13E0012A8AD /* twoDim.app */,
 				5E2DC584238BB1410012A8AD /* ipad_scrollappTests.xctest */,
 				5E2DC58F238BB1410012A8AD /* ipad_scrollappUITests.xctest */,
 			);
@@ -138,6 +140,7 @@
 				5E2DC571238BB13E0012A8AD /* AppDelegate.swift */,
 				5E2DC573238BB13E0012A8AD /* art.scnassets */,
 				5E2DC575238BB13E0012A8AD /* ViewController.swift */,
+				5E11C420245C14F20025F440 /* DrawView.swift */,
 				5E21C6B723C3130F0040767A /* Utility.swift */,
 				5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */,
 				5E2DC577238BB13E0012A8AD /* Main.storyboard */,
@@ -197,7 +200,7 @@
 			);
 			name = ipad_scrollapp;
 			productName = ipad_scrollapp;
-			productReference = 5E2DC56E238BB13E0012A8AD /* ipad_scroll_horizon1.app */;
+			productReference = 5E2DC56E238BB13E0012A8AD /* twoDim.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5E2DC583238BB1410012A8AD /* ipad_scrollappTests */ = {
@@ -402,6 +405,7 @@
 			files = (
 				5E2DC576238BB13E0012A8AD /* ViewController.swift in Sources */,
 				5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */,
+				5E11C421245C14F30025F440 /* DrawView.swift in Sources */,
 				5E21C6B823C3130F0040767A /* Utility.swift in Sources */,
 				5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */,
 				5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */,
@@ -586,8 +590,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.depth;
-				PRODUCT_NAME = ipad_scroll_horizon1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.twoDim;
+				PRODUCT_NAME = twoDim;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -605,8 +609,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.depth;
-				PRODUCT_NAME = ipad_scroll_horizon1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miyagin.twoDim;
+				PRODUCT_NAME = twoDim;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

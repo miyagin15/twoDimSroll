@@ -24,6 +24,7 @@ class Utility {
 
     class func createScrollView(directionString: String) -> UICollectionView {
         var myCollectionView: UICollectionView!
+
         // CollectionViewのレイアウトを生成.
         let layout = UICollectionViewFlowLayout()
         if directionString == "horizonal" {

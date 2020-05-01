@@ -152,6 +152,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         createGoalView()
         initialCallibrationSettings()
 
+        let drawView = DrawView(frame: view.bounds)
+        view.addSubview(drawView)
+
         sceneView.delegate = self
         myCollectionView.contentOffset.x = firstStartPosition
         userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
