@@ -534,11 +534,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //  認識していたら青色に
         DispatchQueue.main.async {
-            if self.nowgoal_Data.count % 120 == 0 {
-                self.orietationLabel.text = String(Float(self.nowgoal_Data.count / 120) - self.workTime)
+            if self.nowgoal_Data.count % 240 == 0 {
+                self.orietationLabel.text = String(Float(self.nowgoal_Data.count / 240) - self.workTime)
                 //                self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
                 // print(self.tableView.contentOffset.y)
-                if (Float(self.nowgoal_Data.count / 120) - self.workTime) > 60 {
+                if (Float(self.nowgoal_Data.count / 240) - self.workTime) > 60 {
                     self.inputClutchView.backgroundColor = UIColor.white
                 }
             }
@@ -572,10 +572,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         // self.myCollectionView.contentOffset.x = firstStartPosition
                         self.operateView.frame.origin = CGPoint(x: self.goalView.frame.width / 2, y: self.goalView.frame.height / 2)
                         if self.repeatNumber != 1 {
-                            self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 120) - self.workTime) + "秒かかった"
-                            self.workTime = Float(self.nowgoal_Data.count / 120)
+                            self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 240) - self.workTime) + "秒かかった"
+                            self.workTime = Float(self.nowgoal_Data.count / 240)
                         } else {
-                            self.workTime = Float(self.nowgoal_Data.count / 120)
+                            self.workTime = Float(self.nowgoal_Data.count / 240)
                             self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
                         }
                         self.dataAppendBool = false
