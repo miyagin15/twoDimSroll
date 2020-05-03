@@ -486,7 +486,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
              }
          }
          */
-git 
         // CSVを作るデータに足していく
         if dataAppendBool == true {
             DispatchQueue.main.async {

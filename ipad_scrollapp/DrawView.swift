@@ -27,7 +27,14 @@ class DrawView: UIView {
         for i in 0 ..< 12 {
             let degree = (Double(i) * 30.0)
             let θ = Double.pi / Double(180) * Double(degree)
-            let circle = UIBezierPath(arcCenter: CGPoint(x: width / 2 + width / 3 * cos(θ), y: height / 2 + width / 3 * sin(θ)), radius: 30, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
+            let cicleX = width / 2 + width / 3 * cos(θ)
+            let cixleY = height / 2 + width / 3 * sin(θ) + height / 2
+            // 文字を書く
+            String(i).draw(at: CGPoint(x: cicleX, y: cixleY), withAttributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.blue,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50),
+            ])
+            let circle = UIBezierPath(arcCenter: CGPoint(x: cicleX, y: cixleY), radius: 30, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
             // 内側の色
             UIColor(red: 0, green: 0, blue: 1, alpha: 0.3).setFill()
             // 内側を塗りつぶす
