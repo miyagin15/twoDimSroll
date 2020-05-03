@@ -13,7 +13,7 @@ import Network
 import SceneKit
 import UIKit
 
-class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, ARSCNViewDelegate {
     var myCollectionView: UICollectionView!
 
     var changeNum = 0
@@ -99,8 +99,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         i = 0
         time = 0
         goalLabel.text = String(goalPositionInt[i])
-        myCollectionView.contentOffset.x = firstStartPosition
-        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
+//        myCollectionView.contentOffset.x = firstStartPosition
+//        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
     }
 
@@ -109,13 +109,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         i = 0
         time = 0
         goalLabel.text = String(goalPositionInt[i])
-        myCollectionView.contentOffset.x = firstStartPosition
-        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
+//        myCollectionView.contentOffset.x = firstStartPosition
+//        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
     }
 
     @IBOutlet var repeatNumberLabel: UILabel!
 
+    @IBOutlet var goalView: UIView!
     @IBOutlet var targetView: UIView!
     var repeatNumber: Int = 1
 
@@ -141,22 +142,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     var documentInteraction: UIDocumentInteractionController!
 
     var depthImageView: UIImageView!
+
+    var operateView: UIView!
+    var positionXY: [Int: [Double]]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // depthMap generate by code
-//        depthImageView = UIImageView()
-//        depthImageView!.frame = CGRect(x: 550, y: 280, width: 640, height: 480)
-//        view.addSubview(depthImageView)
-
         // goalPositionInt = Utility.goalPositionInt
         // createScrollVIew()
         decideGoalpositionTimeCount()
 
-        // createGoalView()
         initialCallibrationSettings()
-        // 二次元を追加
-        let drawView = DrawView(frame: view.bounds)
-        view.addSubview(drawView)
+        // 二次元の目標地点を追加
+        let drawView = DrawView(frame: goalView.bounds)
+        goalView.addSubview(drawView)
+        positionXY = drawView.getPosition(frame: goalView.bounds)
+        for (key, value) in positionXY {
+            print("\(key)はx:\(value[0]),y:\(value[1])です。")
+        }
+        // 動かすview生成
+        operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
+        let bgColor = UIColor.blue
+        operateView.backgroundColor = bgColor
+        goalView.addSubview(operateView)
 
         sceneView.delegate = self
         // myCollectionView.contentOffset.x = firstStartPosition
@@ -171,17 +178,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         }
     }
 
-    // Cellの総数を返す
-    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 100
-    }
-
-    // Cellに値を設定する
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell
-        cell.textLabel?.text = indexPath.row.description
-        return cell
-    }
+//    // Cellの総数を返す
+//    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+//        return 100
+//    }
+//
+//    // Cellに値を設定する
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell: CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell
+//        cell.textLabel?.text = indexPath.row.description
+//        return cell
+//    }
 
     private func initialCallibrationSettings() {
         for x in 0 ... 11 {
@@ -197,12 +204,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     }
 
     // scrolViewを作成する
-    private func createScrollVIew() {
-        myCollectionView = Utility.createScrollView(directionString: "horizonal")
-        myCollectionView.delegate = self
-        myCollectionView.dataSource = self
-        view.addSubview(myCollectionView)
-    }
+//    private func createScrollVIew() {
+//        myCollectionView = Utility.createScrollView(directionString: "horizonal")
+//        myCollectionView.delegate = self
+//        myCollectionView.dataSource = self
+//        view.addSubview(myCollectionView)
+//    }
 
     private func decideGoalpositionTimeCount() {
         goalLabel.text = String(goalPositionInt[0])
@@ -240,7 +247,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // right scroll
     private func rightScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.targetView.frame.origin.x > 1300 {
+            if self.operateView.frame.origin.x > 600 {
                 return
             }
             self.functionalExpression.value = Float(ratio)
@@ -250,7 +257,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                self.targetView.frame.origin.x += CGFloat(self.ratioChange) * changedRatio
+                self.operateView.frame.origin.x += CGFloat(self.ratioChange) * changedRatio
             } else if self.inputMethodString == "position" {
                 return
                 if self.maxValueR < outPutLPF {
@@ -286,7 +293,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // left scroll
     private func leftScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.targetView.frame.origin.x < 0 {
+            if self.operateView.frame.origin.x < 0 {
                 return
             }
             self.functionalExpression.value = -Float(ratio)
@@ -296,7 +303,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                self.targetView.frame.origin.x -= CGFloat(self.ratioChange) * changedRatio
+                self.operateView.frame.origin.x -= CGFloat(self.ratioChange) * changedRatio
             } else if self.inputMethodString == "position" {
                 return
                 if self.maxValueL < outPutLPF {
@@ -700,7 +707,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     }
 
     func createCSV(fileArrData: [Float]) {
-        let CSVFileData = Utility.createCSVFileData(fileArrData: fileArrData, facailAU: buttonLabel.titleLabel!.text!, direction: "horizonal", inputMethod: inputMethodString)
+        let CSVFileData = Utility.createCSVFileData(fileArrData: fileArrData, facailAU: buttonLabel.titleLabel!.text!, direction: "twoDim", inputMethod: inputMethodString)
         let fileName = CSVFileData.fileName
         let fileStrData = CSVFileData.fileData
         // DocumentディレクトリのfileURLを取得

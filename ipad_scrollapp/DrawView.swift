@@ -15,6 +15,20 @@ class DrawView: UIView {
         backgroundColor = UIColor.clear
     }
 
+    func getPosition(frame: CGRect) -> [Int: [Double]] {
+        var positionXY: [Int: [Double]] = [:]
+        let width = Double(frame.width)
+        let height = Double(frame.height)
+        for i in 0 ..< 12 {
+            let degree = (Double(i) * 30.0)
+            let θ = Double.pi / Double(180) * Double(degree)
+            let cicleX = width / 2 + width / 3 * cos(θ)
+            let cixleY = height / 2 + width / 3 * sin(θ)
+            positionXY.updateValue([cicleX, cixleY], forKey: i)
+        }
+        return positionXY
+    }
+
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -22,13 +36,15 @@ class DrawView: UIView {
     override func draw(_: CGRect) {
         // ここにUIBezierPathを記述する
         // 円
-        let width = Double(UIScreen.main.bounds.size.width / 2)
-        let height = Double(UIScreen.main.bounds.size.height / 2)
+//        let width = Double(UIScreen.main.bounds.size.width / 2
+//      let height = Double(UIScreen.main.bounds.size.height / 2)
+        let width = Double(frame.width)
+        let height = Double(frame.height)
         for i in 0 ..< 12 {
             let degree = (Double(i) * 30.0)
             let θ = Double.pi / Double(180) * Double(degree)
             let cicleX = width / 2 + width / 3 * cos(θ)
-            let cixleY = height / 2 + width / 3 * sin(θ) + height / 2
+            let cixleY = height / 2 + width / 3 * sin(θ)
             // 文字を書く
             String(i).draw(at: CGPoint(x: cicleX, y: cixleY), withAttributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.blue,
