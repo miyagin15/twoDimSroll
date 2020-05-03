@@ -115,6 +115,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     }
 
     @IBOutlet var repeatNumberLabel: UILabel!
+
+    @IBOutlet var targetView: UIView!
     var repeatNumber: Int = 1
 
     private let cellIdentifier = "cell"
@@ -147,17 +149,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
 //        view.addSubview(depthImageView)
 
         // goalPositionInt = Utility.goalPositionInt
-        createScrollVIew()
+        // createScrollVIew()
         decideGoalpositionTimeCount()
-        createGoalView()
-        initialCallibrationSettings()
 
+        // createGoalView()
+        initialCallibrationSettings()
+        // 二次元を追加
         let drawView = DrawView(frame: view.bounds)
         view.addSubview(drawView)
 
         sceneView.delegate = self
-        myCollectionView.contentOffset.x = firstStartPosition
-        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
+        // myCollectionView.contentOffset.x = firstStartPosition
+        // userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         //timeInterval秒に一回update関数を動かす
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
@@ -237,7 +240,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // right scroll
     private func rightScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.myCollectionView.contentOffset.x > 6000 {
+            if self.targetView.frame.origin.x > 1300 {
                 return
             }
             self.functionalExpression.value = Float(ratio)
@@ -246,10 +249,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             self.lastValueL = outPutLPF
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
-                self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-//            } else if self.inputMethodString == "position" {
-//                self.myCollectionView.contentOffset = CGPoint(x: 300 * ratio * CGFloat(self.ratioChange), y: 0)
+                // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
+                self.targetView.frame.origin.x += CGFloat(self.ratioChange) * changedRatio
             } else if self.inputMethodString == "position" {
+                return
                 if self.maxValueR < outPutLPF {
                     self.maxValueR = outPutLPF
                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
@@ -283,7 +286,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // left scroll
     private func leftScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.myCollectionView.contentOffset.x < 0 {
+            if self.targetView.frame.origin.x < 0 {
                 return
             }
             self.functionalExpression.value = -Float(ratio)
@@ -292,10 +295,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             self.lastValueL = outPutLPF
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
-                self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-//            } else if self.inputMethodString == "position" {
-//                self.myCollectionView.contentOffset = CGPoint(x: -300 * ratio * CGFloat(self.ratioChange), y: 0)
+                // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
+                self.targetView.frame.origin.x -= CGFloat(self.ratioChange) * changedRatio
             } else if self.inputMethodString == "position" {
+                return
                 if self.maxValueL < outPutLPF {
                     self.maxValueL = outPutLPF
                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
@@ -412,120 +415,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         guard let faceAnchor = anchor as? ARFaceAnchor else {
             return
         }
-        if 2 == 1 {
-            // 左447 右600 鼻８
-            faceNoseInWorld = SCNVector3(faceAnchor.transform.columns.3.x, faceAnchor.transform.columns.3.y, faceAnchor.transform.columns.3.z)
-            faceNoseInscreenPos = sceneView.projectPoint(faceNoseInWorld)
-
-            faceLeftCheekInWorld = SCNVector3(faceAnchor.transform.columns.3.x + faceAnchor.geometry.vertices[449][0], faceAnchor.transform.columns.3.y + faceAnchor.geometry.vertices[449][1], faceAnchor.transform.columns.3.z)
-            faceLeftCheekInscreenPos = sceneView.projectPoint(faceLeftCheekInWorld)
-
-            faceRightCheekInWorld = SCNVector3(faceAnchor.transform.columns.3.x + faceAnchor.geometry.vertices[876][0], faceAnchor.transform.columns.3.y + faceAnchor.geometry.vertices[876][1], faceAnchor.transform.columns.3.z)
-            faceRightCheekInscreenPos = sceneView.projectPoint(faceRightCheekInWorld)
-
-            // print(faceCheekInWorld, faceNoseInWorld)
-            // print(faceCheekInscreenPos, faceNoseInscreenPos)
-            //        print("1", faceAnchor.geometry.vertices[8][0], faceAnchor.geometry.vertices[447][0], faceAnchor.transform.columns.3.x, faceAnchor.transform.columns.3.y, faceAnchor.geometry.vertices[8][0], faceAnchor.geometry.vertices[447][1])
-            //        print("2", faceAnchor.transform.columns.3.x + faceAnchor.geometry.vertices[447][0], faceAnchor.transform.columns.3.y + faceAnchor.geometry.vertices[447][1])
-            //        print("3", faceAnchor.transform.columns.3.x, faceAnchor.transform.columns.3.y)
-            // 鼻トラッキング
-            //        DispatchQueue.main.async {
-            //            let TestView = UIView(frame: CGRect(x: CGFloat(self.faceRightCheekInscreenPos.x), y: CGFloat(self.faceRightCheekInscreenPos.y), width: 10, height: 10))
-            //            let bgColor = UIColor.blue
-            //            TestView.backgroundColor = bgColor
-            //            self.view.addSubview(TestView)
-            //            // print(CGFloat(faceNoseInscreenPos.x), CGFloat(faceNoseInscreenPos.y))
-            //            // self.transTrans = CGAffineTransform(translationX: CGFloat(faceNoseInscreenPos.x), y: CGFloat(faceNoseInscreenPos.y))
-            //            self.tracking.transform = self.transTrans
-            //        }
-
-            // print(faceNoseInscreenPos) // 横にしてx:0~1200, y:0~740  中心は600,420  たて400,600
-            // depth を直接取得          print(view.bounds)→1194*834
-            guard let frame = sceneView.session.currentFrame else { return }
-            let depthData = frame.capturedDepthData?.converting(toDepthDataType: kCVPixelFormatType_DepthFloat32)
-            let depthDataMap = depthData?.depthDataMap
-            print(depthDataMap)
-            if depthDataMap == nil {
-            } else if depthDataMap != nil {
-                DispatchQueue.main.async {
-                    // let uiImage = UIImageView()
-                    let depthDataImgae = CIImage(cvPixelBuffer: depthDataMap!)
-                    let uiImage = UIImage(ciImage: depthDataImgae)
-//                    uiImage.image = UIImage(ciImage: depthDataImgae)
-//                    // 画像のフレームを設定
-//                    uiImage.frame = CGRect(x: 0, y: 0, width: 640, height: 480)
-//                    // 画像を中央に設定
-//                    uiImage.center = CGPoint(x: 500 / 2, y: 500 / 2)
-                    // 設定した画像をスクリーンに表示する
-                    // self.view.addSubview(uiImage)
-                    self.depthImageView.image = uiImage
-                    self.depthImageView.setNeedsLayout()
-                }
-                let width = CVPixelBufferGetWidth(depthDataMap!) // 640  ipad2,388 x 1,668
-                let height = CVPixelBufferGetHeight(depthDataMap!) // 480
-                // let baseAddress = CVPixelBufferGetBaseAddress(depthDataMap!)
-                // let floatBuffer = UnsafeMutablePointer<Float32>(baseAddress!)
-                CVPixelBufferLockBaseAddress(depthDataMap!, CVPixelBufferLockFlags(rawValue: 0))
-                let floatBuffer = unsafeBitCast(CVPixelBufferGetBaseAddress(depthDataMap!), to: UnsafeMutablePointer<Float32>.self)
-                // print(floatBuffer)
-                // let distanceAtXYPoint = floatBuffer[Int(x * y)]
-
-                distanceAtXYPoint = floatBuffer[Int(faceNoseInscreenPos.x * faceNoseInscreenPos.y / 4)]
-                distanceAtXYPoint = floatBuffer[Int(faceNoseInscreenPos.x * widthRatio) * Int(faceNoseInscreenPos.y * heightRatio)]
-
-                // print(floatBuffer[(width / 2) * (height / 2)])
-                // print(width, height)
-                //            for i in 640 * 320 ... 640 * 321 {
-                //                print(i, floatBuffer[i])
-                //            }
-
-                // print(distanceAtXYPoint)
-
-                // print(floatBuffer[Int(faceRightCheekInscreenPos.x * faceRightCheekInscreenPos.y / 4)])
-                // print(floatBuffer[Int(faceLeftCheekInscreenPos.x * faceLeftCheekInscreenPos.y / 4)])
-
-                // うまくdepthが取れた
-                //            for yMap in 0 ..< height {
-                //                let rowData = CVPixelBufferGetBaseAddress(depthDataMap!)! + yMap * CVPixelBufferGetBytesPerRow(depthDataMap!)
-                //                let data = UnsafeMutableBufferPointer<Float32>(start: rowData.assumingMemoryBound(to: Float32.self), count: width)
-                //                for index in 0 ..< width {
-                //                    let depth = data[index]
-                //                    print("yMap:", yMap, "width:", index, "depth:", data[index])
-                //                    if depth.isNaN {
-                //                        data[index] = 1.0
-                //                    } else if depth <= 1.0 {
-                //                        // 前景
-                //                        data[index] = 1.0
-                //                    } else {
-                //                        // 背景
-                //                        data[index] = 0.0
-                //                    }
-                //                }
-                //            }
-
-                // print(Int(faceNoseInscreenPos.x), Int(faceNoseInscreenPos.y))
-                // print(Int(faceNoseInscreenPos.x * widthRatio), Int(faceNoseInscreenPos.y * heightRatio))
-//                print(Int(faceNoseInscreenPos.x * (Float(width) / widthIpad)), Int(faceNoseInscreenPos.y * Float(height) / heightIpad))
-                let rowDataNose = CVPixelBufferGetBaseAddress(depthDataMap!)! + Int(faceNoseInscreenPos.y * heightRatio) * CVPixelBufferGetBytesPerRow(depthDataMap!)
-                let dataNose = UnsafeMutableBufferPointer<Float32>(start: rowDataNose.assumingMemoryBound(to: Float32.self), count: width)
-                // print("Nose:", dataNose[Int(faceNoseInscreenPos.x * widthRatio)])
-
-                let rowDataCheek = CVPixelBufferGetBaseAddress(depthDataMap!)! + Int(faceLeftCheekInscreenPos.y * heightRatio) * CVPixelBufferGetBytesPerRow(depthDataMap!)
-                let dataCheek = UnsafeMutableBufferPointer<Float32>(start: rowDataCheek.assumingMemoryBound(to: Float32.self), count: width)
-
-                // print(dataNose[Int(faceNoseInscreenPos.x / 2)])
-
-//                print("Left:", dataCheek[Int(faceLeftCheekInscreenPos.x * widthRatio)])
-//                print("Right:", dataCheek[Int(faceRightCheekInscreenPos.x * widthRatio)])
-
-                depthRightCheek = dataCheek[Int(faceRightCheekInscreenPos.x * widthRatio)] - dataNose[Int(faceNoseInscreenPos.x * widthRatio)]
-                depthLeftCheek = dataCheek[Int(faceLeftCheekInscreenPos.x * widthRatio)] - dataNose[Int(faceNoseInscreenPos.x * widthRatio)]
-
-                // print("Left-Nose:", dataCheek[Int(faceLeftCheekInscreenPos.x * widthRatio)] - dataNose[Int(faceNoseInscreenPos.x * widthRatio)])
-                // print("Right-Nose:", dataCheek[Int(faceRightCheekInscreenPos.x * widthRatio)] - dataNose[Int(faceNoseInscreenPos.x * widthRatio)])
-                CVPixelBufferUnlockBaseAddress(depthDataMap!, CVPixelBufferLockFlags(rawValue: 0))
-            }
-        }
 
         // print(faceAnchor.transform.columns.3)
 
@@ -537,12 +426,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         }
         // 顔のxyz位置
         // print(faceAnchor.transform.columns.3.x, faceAnchor.transform.columns.3.y, faceAnchor.transform.columns.3.z)
-
-//        // 下を向いている時の処理
-//        ratioLookDown = faceAnchor.transform.columns.1.z
-//        DispatchQueue.main.async {
-//            self.orietationLabel.text = String(self.ratioLookDown)
-//        }
 
         //  認識していたら青色に
         DispatchQueue.main.async {
@@ -557,50 +440,53 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         }
 
         let goal = goalPosition[self.i]
-        DispatchQueue.main.async {
-            self.myCollectionViewPosition = self.myCollectionView.contentOffset.x
-            // 目標との距離が近くなったら
-            if goal - 50 < Float(self.myCollectionViewPosition), Float(self.myCollectionViewPosition) < goal {
-                print("クリア")
-                self.time = self.time + 1
-                self.timeCount.value = Float(self.time)
-                if self.time > 60 {
-                    print("クリア2")
-                    AudioServicesPlaySystemSound(self.sound)
-                    if self.i < goalPositionInt.count - 1 {
-                        self.i = self.i + 1
-                        self.timeCount.value = 0
-                        self.buttonLabel.backgroundColor = UIColor.blue
-                        if self.i == goalPositionInt.count - 1 {
-                            self.goalLabel.text = "次:" + String(goalPositionInt[self.i])
-                        } else {
-                            self.goalLabel.text = "次:" + String(goalPositionInt[self.i]) + "---次の次:" + String(goalPositionInt[self.i + 1])
-                        }
-                    } else {
-                        self.myCollectionView.contentOffset.x = firstStartPosition
-                        if self.repeatNumber != 1 {
-                            self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 120) - self.workTime) + "秒かかった"
-                            self.workTime = Float(self.nowgoal_Data.count / 120)
-                        } else {
-                            self.workTime = Float(self.nowgoal_Data.count / 120)
-                            self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
-                        }
-                        self.dataAppendBool = false
-                        self.repeatNumber = self.repeatNumber + 1
-                        self.time = 0
-                        self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                        // データをパソコンに送る(今の場所と目標地点)
-                        DispatchQueue.main.async {
-                            self.repeatNumberLabel.text = String(self.repeatNumber) + "回目"
-                            // self.NetWork.send(message: [0,0])
-                        }
-                    }
-                }
-            } else {
-                self.time = 0
-            }
-        }
+        /*
+         DispatchQueue.main.async {
 
+             self.myCollectionViewPosition = self.myCollectionView.contentOffset.x
+             // 目標との距離が近くなったら
+             if goal - 50 < Float(self.myCollectionViewPosition), Float(self.myCollectionViewPosition) < goal {
+                 print("クリア")
+                 self.time = self.time + 1
+                 self.timeCount.value = Float(self.time)
+                 if self.time > 60 {
+                     print("クリア2")
+                     AudioServicesPlaySystemSound(self.sound)
+                     if self.i < goalPositionInt.count - 1 {
+                         self.i = self.i + 1
+                         self.timeCount.value = 0
+                         self.buttonLabel.backgroundColor = UIColor.blue
+                         if self.i == goalPositionInt.count - 1 {
+                             self.goalLabel.text = "次:" + String(goalPositionInt[self.i])
+                         } else {
+                             self.goalLabel.text = "次:" + String(goalPositionInt[self.i]) + "---次の次:" + String(goalPositionInt[self.i + 1])
+                         }
+                     } else {
+                         self.myCollectionView.contentOffset.x = firstStartPosition
+                         if self.repeatNumber != 1 {
+                             self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 120) - self.workTime) + "秒かかった"
+                             self.workTime = Float(self.nowgoal_Data.count / 120)
+                         } else {
+                             self.workTime = Float(self.nowgoal_Data.count / 120)
+                             self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
+                         }
+                         self.dataAppendBool = false
+                         self.repeatNumber = self.repeatNumber + 1
+                         self.time = 0
+                         self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
+                         // データをパソコンに送る(今の場所と目標地点)
+                         DispatchQueue.main.async {
+                             self.repeatNumberLabel.text = String(self.repeatNumber) + "回目"
+                             // self.NetWork.send(message: [0,0])
+                         }
+                     }
+                 }
+             } else {
+                 self.time = 0
+             }
+         }
+         */
+git 
         // CSVを作るデータに足していく
         if dataAppendBool == true {
             DispatchQueue.main.async {
@@ -811,25 +697,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             } else {
                 leftScrollMainThread(ratio: CGFloat(-handsSliderValue))
             }
-//            if cheekSquintLeft > cheekSquintRight {
-//                rightScrollMainThread(ratio: CGFloat(cheekSquintLeft))
-//            } else {
-//                leftScrollMainThread(ratio: CGFloat(cheekSquintRight))
-//            }
-
-//        default:
-//            buttonLabel.setTitle("Rip", for: .normal)
-//            if let mouthLeft = faceAnchor.blendShapes[.cheekSquintLeft] as? Float {
-//                if mouthLeft > 0.1 {
-//                    self.scrollDownInMainThread(ratio: CGFloat(mouthLeft))
-//                }
-//            }
-//
-//            if let mouthRight = faceAnchor.blendShapes[.cheekSquintRight] as? Float {
-//                if mouthRight > 0.1 {
-//                    self.scrollUpInMainThread(ratio: CGFloat(mouthRight))
-//                }
-//            }
         }
     }
 

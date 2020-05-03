@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="HorizonalViewController" id="BV1-FR-VrT" customClass="ViewController" customModule="ipad_scroll_horizon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HorizonalViewController" id="BV1-FR-VrT" customClass="ViewController" customModule="twoDim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -190,6 +190,11 @@
                                 <rect key="frame" x="655" y="535" width="521" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MLf-uH-voa" userLabel="targetView">
+                                <rect key="frame" x="614" y="450" width="5" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -220,6 +225,7 @@
                         <outlet property="orietationLabel" destination="inW-SV-gjn" id="RuT-Gx-mGi"/>
                         <outlet property="repeatNumberLabel" destination="ewJ-r0-b0q" id="jfg-k5-3n8"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="targetView" destination="MLf-uH-voa" id="fIg-ID-i4c"/>
                         <outlet property="timeCount" destination="bAq-Wh-VV3" id="79w-Aa-Ovc"/>
                         <outlet property="tracking" destination="FzM-5d-oAt" id="lFO-sK-VZy"/>
                     </connections>
@@ -231,7 +237,7 @@
         <!--Calibration View Controller-->
         <scene sceneID="Qvn-Az-ST8">
             <objects>
-                <viewController storyboardIdentifier="CalibrationViewController" id="jWB-VX-5GB" customClass="CalibrationViewController" customModule="ipad_scroll_horizon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalibrationViewController" id="jWB-VX-5GB" customClass="CalibrationViewController" customModule="twoDim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QO3-eq-W9M">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,7 +325,7 @@
         <!--Vertical View Controller-->
         <scene sceneID="b3Q-LB-ceV">
             <objects>
-                <viewController storyboardIdentifier="VerticalViewController" id="8lW-eI-KZf" customClass="VerticalViewController" customModule="ipad_scroll_horizon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerticalViewController" id="8lW-eI-KZf" customClass="VerticalViewController" customModule="twoDim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="kOr-3B-JOZ">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

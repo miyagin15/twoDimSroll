@@ -22,8 +22,8 @@ class DrawView: UIView {
     override func draw(_: CGRect) {
         // ここにUIBezierPathを記述する
         // 円
-        let width = Double(UIScreen.main.bounds.size.width)
-        let height = Double(UIScreen.main.bounds.size.height)
+        let width = Double(UIScreen.main.bounds.size.width / 2)
+        let height = Double(UIScreen.main.bounds.size.height / 2)
         for i in 0 ..< 12 {
             let degree = (Double(i) * 30.0)
             let θ = Double.pi / Double(180) * Double(degree)
