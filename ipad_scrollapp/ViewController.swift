@@ -161,7 +161,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         // 動かすview生成
         operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
-        let bgColor = UIColor.blue
+        let bgColor = UIColor.red
         operateView.backgroundColor = bgColor
         goalView.addSubview(operateView)
 
