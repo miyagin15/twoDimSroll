@@ -19,13 +19,14 @@ class DrawView: UIView {
         var positionXY: [Int: [Double]] = [:]
         let width = Double(frame.width)
         let height = Double(frame.height)
-        for i in 0 ..< 12 {
-            let degree = (Double(i) * 30.0)
+        for i in 0 ..< 13 {
+            let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
             let cicleX = width / 2 + width / 3 * cos(θ)
             let cixleY = height / 2 + width / 3 * sin(θ)
             positionXY.updateValue([cicleX, cixleY], forKey: i)
         }
+        print(positionXY)
         return positionXY
     }
 
@@ -40,8 +41,8 @@ class DrawView: UIView {
 //      let height = Double(UIScreen.main.bounds.size.height / 2)
         let width = Double(frame.width)
         let height = Double(frame.height)
-        for i in 0 ..< 12 {
-            let degree = (Double(i) * 30.0)
+        for i in 0 ..< 13 {
+            let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
             let cicleX = width / 2 + width / 3 * cos(θ)
             let cixleY = height / 2 + width / 3 * sin(θ)
