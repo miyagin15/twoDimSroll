@@ -11,6 +11,8 @@
 		5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */; };
 		5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */; };
 		5E11C421245C14F30025F440 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C420245C14F20025F440 /* DrawView.swift */; };
+		5E16CC39245F07E0007F8C7B /* GDPerformanceView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E16CC38245F07E0007F8C7B /* GDPerformanceView.framework */; };
+		5E16CC3A245F07E0007F8C7B /* GDPerformanceView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E16CC38245F07E0007F8C7B /* GDPerformanceView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5E21C6B823C3130F0040767A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E21C6B723C3130F0040767A /* Utility.swift */; };
 		5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC571238BB13E0012A8AD /* AppDelegate.swift */; };
 		5E2DC574238BB13E0012A8AD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC573238BB13E0012A8AD /* art.scnassets */; };
@@ -41,6 +43,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5E16CC3B245F07E0007F8C7B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5E16CC3A245F07E0007F8C7B /* GDPerformanceView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3AC957CB8BC0FCF8612E9E49 /* Pods-ipad_scrollapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollapp.debug.xcconfig"; path = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.debug.xcconfig"; sourceTree = "<group>"; };
 		499AA693E62E5B22BF5E5E9A /* Pods-ipad_scrollappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappTests.release.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +64,7 @@
 		5E0AB8282397D37400C8F2D0 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
 		5E0AB82A239896B100C8F2D0 /* VerticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalViewController.swift; sourceTree = "<group>"; };
 		5E11C420245C14F20025F440 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		5E16CC38245F07E0007F8C7B /* GDPerformanceView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDPerformanceView.framework; path = Carthage/Build/iOS/GDPerformanceView.framework; sourceTree = "<group>"; };
 		5E21C6B723C3130F0040767A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		5E2DC56E238BB13E0012A8AD /* twoDim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twoDim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2DC571238BB13E0012A8AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E16CC39245F07E0007F8C7B /* GDPerformanceView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +192,7 @@
 		EF7B0CF3E9F9F6CB37776CE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E16CC38245F07E0007F8C7B /* GDPerformanceView.framework */,
 				AE890EB32FEA0B5F50274BCB /* Pods_ipad_scrollapp.framework */,
 				D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */,
 				63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */,
@@ -193,6 +212,8 @@
 				5E2DC56B238BB13E0012A8AD /* Frameworks */,
 				5E2DC56C238BB13E0012A8AD /* Resources */,
 				5E21C6B523A8571E0040767A /* ShellScript */,
+				5E16CC3B245F07E0007F8C7B /* Embed Frameworks */,
+				5E16CC3C245F07F0007F8C7B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -334,6 +355,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5E16CC3C245F07F0007F8C7B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/GDPerformanceView.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 		5E21C6B523A8571E0040767A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -585,6 +624,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ipad_scrollapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,6 +647,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CQGQTJ32KV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ipad_scrollapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,14 +6,15 @@
 //  Copyright © 2019 com.miyagin.ipad_scroll. All rights reserved.
 //
 
+// import GDPerformanceView
 import UIKit
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // PerformanceMonitor.shared().start()
         return true
     }
 
