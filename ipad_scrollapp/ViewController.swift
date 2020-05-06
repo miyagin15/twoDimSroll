@@ -661,7 +661,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         switch changeAction {
         case 0:
             DispatchQueue.main.async {
-                self.buttonLabel.setTitle("MouthRL", for: .normal)
+                self.buttonLabel.setTitle("MouthRL_browUD", for: .normal)
             }
             let mouthLeftBS = faceAnchor.blendShapes[.mouthLeft] as! Float
             let mouthRightBS = faceAnchor.blendShapes[.mouthRight] as! Float
@@ -728,7 +728,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         case 1:
             DispatchQueue.main.async {
-                self.buttonLabel.setTitle("mouthHalfSmile", for: .normal)
+                self.buttonLabel.setTitle("mouthHalfSmile_broUD", for: .normal)
             }
             let cheekSquintLeft = faceAnchor.blendShapes[.mouthSmileLeft] as! Float
             let cheekSquintRight = faceAnchor.blendShapes[.mouthSmileRight] as! Float
@@ -759,11 +759,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             } else {
                 rightScrollMainThread(ratio: CGFloat(cheekR))
             }
-
-        case 2:
-            DispatchQueue.main.async {
-                self.buttonLabel.setTitle("Brow", for: .normal)
-            }
             var browInnerUp: Float = 0
             var browDownLeft: Float = 0
             if callibrationUseBool == true {
@@ -773,25 +768,79 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 browInnerUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.053307146, minFaceAUVertex: 0.04667869)
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
-//                if let browInnerUp = faceAnchor.blendShapes[.browInnerUp] as? Float {
-//                    if browInnerUp > 0.5 {
-//                        leftScrollMainThread(ratio: CGFloat(browInnerUp - 0.4) * 1.5)
-//                    }
-//                }
-//
-//                if let browDownLeft = faceAnchor.blendShapes[.browDownLeft] as? Float {
-//                    if browDownLeft > 0.2 {
-//                        rightScrollMainThread(ratio: CGFloat(browDownLeft))
-//                    }
-//                }
+                //                if let browInnerUp = faceAnchor.blendShapes[.browInnerUp] as? Float {
+                //                    if browInnerUp > 0.5 {
+                //                        leftScrollMainThread(ratio: CGFloat(browInnerUp - 0.4) * 1.5)
+                //                    }
+                //                }
+                //
+                //                if let browDownLeft = faceAnchor.blendShapes[.browDownLeft] as? Float {
+                //                    if browDownLeft > 0.2 {
+                //                        rightScrollMainThread(ratio: CGFloat(browDownLeft))
+                //                    }
+                //                }
             }
-//            if browInnerUp < 0.1, browDownLeft < 0.1 {
+            //            if browInnerUp < 0.1, browDownLeft < 0.1 {
+            //                return
+            //            }
+            print(browInnerUp)
+            if browInnerUp > browDownLeft {
+                upScrollMainThread(ratio: CGFloat(browInnerUp))
+            } else {
+                downScrollMainThread(ratio: CGFloat(browDownLeft))
+            }
+
+        case 2:
+            DispatchQueue.main.async {
+                self.buttonLabel.setTitle("mouthCentral", for: .normal)
+            }
+            let mouthLeftBS = faceAnchor.blendShapes[.mouthLeft] as! Float
+            let mouthRightBS = faceAnchor.blendShapes[.mouthRight] as! Float
+            var mouthLeft: Float = 0
+            var mouthRight: Float = 0
+            if callibrationUseBool == true {
+                mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[0], minFaceAUVertex: callibrationOrdinalPosition[0])
+                // print("mouthLeft", mouthLeft)
+                mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[1], minFaceAUVertex: callibrationOrdinalPosition[1])
+            } else {
+                mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[638][0], maxFaceAUVertex: 0.008952, minFaceAUVertex: 0.021727568)
+                // print("mouthLeft", mouthLeft)
+                mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[405][0], maxFaceAUVertex: -0.004787985, minFaceAUVertex: -0.0196867)
+            }
+//            if mouthLeft < 0.1, mouthRight < 0.1 {
 //                return
 //            }
-            if browInnerUp > browDownLeft {
-                leftScrollMainThread(ratio: CGFloat(browInnerUp))
+
+//            print(mouthLeft, mouthRight)
+//            if mouthLeft > mouthRight, mouthRightBS > 0.001 {
+//                leftScrollMainThread(ratio: CGFloat(mouthLeft))
+//
+//            } else if mouthRight > mouthLeft, mouthLeftBS > 0.001 {
+//                rightScrollMainThread(ratio: CGFloat(mouthRight))
+//            }
+            // print(mouthLeft, mouthRight)
+            if mouthLeft > mouthRight {
+                leftScrollMainThread(ratio: CGFloat(mouthLeft))
+
+            } else if mouthRight > mouthLeft {
+                rightScrollMainThread(ratio: CGFloat(mouthRight))
+            }
+            var mouthUp: Float = 0
+            var mouthDown: Float = 0
+            if callibrationUseBool == true {
+                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[2], minFaceAUVertex: callibrationOrdinalPosition[2])
+                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[3], minFaceAUVertex: callibrationOrdinalPosition[3])
             } else {
-                rightScrollMainThread(ratio: CGFloat(browDownLeft))
+                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.03719348, minFaceAUVertex: -0.04107782)
+                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.04889179, minFaceAUVertex: -0.04107782)
+            }
+//             if mouthUp < 0.1, mouthDown < 0.1 {
+//                 return
+//             }
+            if mouthUp > mouthDown {
+                upScrollMainThread(ratio: CGFloat(mouthUp))
+            } else {
+                downScrollMainThread(ratio: CGFloat(mouthDown))
             }
 
         case 3:
