@@ -127,7 +127,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
     // ゴールの目標セルを決める
     // var goalPositionInt: [Int] = [15, 14, 13, 12, 11, 10, 20, 16, 17, 18, 19]
     // ゴールの目標位置を決める.数だけは合わせる必要がある
-    var goalPosition: [Float] = [0, 0, 13, 12, 11, 10, 20, 16, 17, 18, 19]
+    var goalPosition: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
     private var tapData: [[Float]] = [[]]
     private var nowgoal_Data: [Float] = []
     let callibrationArr: [String] = ["口左", "口右", "口上", "口下", "頰右", "頰左", "眉上", "眉下", "右笑", "左笑", "上唇", "下唇", "普通"]
@@ -135,6 +135,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
     var callibrationPosition: [Float] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     // 初期設定のMINの普通の状態を保存する
     var callibrationOrdinalPosition: [Float] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
     var documentInteraction: UIDocumentInteractionController!
 
     override func viewDidLoad() {
@@ -197,7 +198,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
     private func decideGoalpositionTimeCount() {
         goalLabel.text = String(goalPositionInt[0])
         for i in 0 ..< goalPositionInt.count {
-            goalPosition[i] = Float(goalPositionInt[i] * 100 - 200)
+            goalPosition[i] = goalPositionInt[i] * 100 - 200
         }
         timeCount.maximumValue = 60
         timeCount.minimumValue = 0
@@ -241,6 +242,8 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
                 self.myCollectionView.contentOffset = CGPoint(x: 0, y: self.myCollectionView.contentOffset.y + 10 * changedRatio * CGFloat(self.ratioChange))
+                print("動く量:", 10 * changedRatio * CGFloat(self.ratioChange))
+                print("contentOffset:", self.myCollectionView.contentOffset.y)
             } else if self.inputMethodString == "position" {
                 if self.maxValueUP < outPutLPF {
                     self.maxValueUP = outPutLPF
@@ -286,6 +289,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
             if self.inputMethodString == "velocity" {
                 let changedRatio = self.scrollRatioChange(ratio)
                 self.myCollectionView.contentOffset = CGPoint(x: 0, y: self.myCollectionView.contentOffset.y - 10 * changedRatio * CGFloat(self.ratioChange))
+                print("動く量:", 10 * changedRatio * CGFloat(self.ratioChange))
             } else if self.inputMethodString == "position" {
                 if self.maxValueDown < outPutLPF {
                     self.maxValueDown = outPutLPF
@@ -317,6 +321,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
 
     private func scrollRatioChange(_ ratioValue: CGFloat) -> CGFloat {
         var changeRatio: CGFloat = 0
+        print("純粋なratio:", ratioValue)
         // y = 1.5x^2
         // changeRatio = 1.5 * ratioValue * ratioValue
 
@@ -328,6 +333,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
         //            changeRatio = ratioValue - 0.25 + 0.05
         //        }
         changeRatio = tanh((ratioValue * 3 - 1.5 - 0.8) * 3.14 / 2) * 0.7 + 0.7
+        print("chageRatio:", changeRatio)
         // changeRatio = ratioValue
 
         //        if ratioValue < 0.55 {
@@ -467,7 +473,7 @@ class VerticalViewController: UIViewController, ARSCNViewDelegate, UICollectionV
         DispatchQueue.main.async {
             self.myCollectionViewPosition = self.myCollectionView.contentOffset.y
             // 目標との距離が近くなったら
-            if goal - 50 < Float(self.myCollectionViewPosition), Float(self.myCollectionViewPosition) < goal {
+            if goal - 50 < Int(Float(self.myCollectionViewPosition)), Int(Float(self.myCollectionViewPosition)) < goal {
                 // if((Float(self.myCollectionViewPosition)) - Float(100 * self.i) < -200.0 && (Float(self.myCollectionViewPosition)) - Float(100 * self.i) > -250.0){
                 // if( (Float(self.myCollectionViewPosition) - goal) < 50 && (Float(self.myCollectionViewPosition) - goal) > -50){
                 print("クリア")
