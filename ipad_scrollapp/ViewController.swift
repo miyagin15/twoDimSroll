@@ -566,53 +566,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.time = 0
             }
         }
-
-        /*
-         DispatchQueue.main.async {
-
-             self.myCollectionViewPosition = self.myCollectionView.contentOffset.x
-             // 目標との距離が近くなったら
-             if goal - 50 < Float(self.myCollectionViewPosition), Float(self.myCollectionViewPosition) < goal {
-                 print("クリア")
-                 self.time = self.time + 1
-                 self.timeCount.value = Float(self.time)
-                 if self.time > 60 {
-                     print("クリア2")
-                     AudioServicesPlaySystemSound(self.sound)
-                     if self.i < goalPositionInt.count - 1 {
-                         self.i = self.i + 1
-                         self.timeCount.value = 0
-                         self.buttonLabel.backgroundColor = UIColor.blue
-                         if self.i == goalPositionInt.count - 1 {
-                             self.goalLabel.text = "次:" + String(goalPositionInt[self.i])
-                         } else {
-                             self.goalLabel.text = "次:" + String(goalPositionInt[self.i]) + "---次の次:" + String(goalPositionInt[self.i + 1])
-                         }
-                     } else {
-                         self.myCollectionView.contentOffset.x = firstStartPosition
-                         if self.repeatNumber != 1 {
-                             self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 120) - self.workTime) + "秒かかった"
-                             self.workTime = Float(self.nowgoal_Data.count / 120)
-                         } else {
-                             self.workTime = Float(self.nowgoal_Data.count / 120)
-                             self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
-                         }
-                         self.dataAppendBool = false
-                         self.repeatNumber = self.repeatNumber + 1
-                         self.time = 0
-                         self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                         // データをパソコンに送る(今の場所と目標地点)
-                         DispatchQueue.main.async {
-                             self.repeatNumberLabel.text = String(self.repeatNumber) + "回目"
-                             // self.NetWork.send(message: [0,0])
-                         }
-                     }
-                 }
-             } else {
-                 self.time = 0
-             }
-         }
-         */
         // CSVを作るデータに足していく
         if dataAppendBool == true {
             DispatchQueue.main.async {
@@ -649,17 +602,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // print("mouthLeft", mouthLeft)
                 mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[405][0], maxFaceAUVertex: -0.004787985, minFaceAUVertex: -0.0196867)
             }
-//            if mouthLeft < 0.1, mouthRight < 0.1 {
-//                return
-//            }
 
-//            print(mouthLeft, mouthRight)
-//            if mouthLeft > mouthRight, mouthRightBS > 0.001 {
-//                leftScrollMainThread(ratio: CGFloat(mouthLeft))
-//
-//            } else if mouthRight > mouthLeft, mouthLeftBS > 0.001 {
-//                rightScrollMainThread(ratio: CGFloat(mouthRight))
-//            }
             // print(mouthLeft, mouthRight)
             if mouthLeft > mouthRight {
                 leftScrollMainThread(ratio: CGFloat(mouthLeft))
@@ -677,27 +620,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 browInnerUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.053307146, minFaceAUVertex: 0.04667869)
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
-                //                if let browInnerUp = faceAnchor.blendShapes[.browInnerUp] as? Float {
-                //                    if browInnerUp > 0.5 {
-                //                        leftScrollMainThread(ratio: CGFloat(browInnerUp - 0.4) * 1.5)
-                //                    }
-                //                }
-                //
-                //                if let browDownLeft = faceAnchor.blendShapes[.browDownLeft] as? Float {
-                //                    if browDownLeft > 0.2 {
-                //                        rightScrollMainThread(ratio: CGFloat(browDownLeft))
-                //                    }
-                //                }
-            }
-            //            if browInnerUp < 0.1, browDownLeft < 0.1 {
-            //                return
-            //            }
             print(browInnerUp)
             if browInnerUp > browDownLeft {
                 upScrollMainThread(ratio: CGFloat(browInnerUp))
             } else {
                 downScrollMainThread(ratio: CGFloat(browDownLeft))
             }
+        }
 
         case 1:
             DispatchQueue.main.async {
@@ -741,21 +670,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 browInnerUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.053307146, minFaceAUVertex: 0.04667869)
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
-                //                if let browInnerUp = faceAnchor.blendShapes[.browInnerUp] as? Float {
-                //                    if browInnerUp > 0.5 {
-                //                        leftScrollMainThread(ratio: CGFloat(browInnerUp - 0.4) * 1.5)
-                //                    }
-                //                }
-                //
-                //                if let browDownLeft = faceAnchor.blendShapes[.browDownLeft] as? Float {
-                //                    if browDownLeft > 0.2 {
-                //                        rightScrollMainThread(ratio: CGFloat(browDownLeft))
-                //                    }
-                //                }
+
             }
-            //            if browInnerUp < 0.1, browDownLeft < 0.1 {
-            //                return
-            //            }
             print(browInnerUp)
             if browInnerUp > browDownLeft {
                 upScrollMainThread(ratio: CGFloat(browInnerUp))
@@ -780,18 +696,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // print("mouthLeft", mouthLeft)
                 mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[405][0], maxFaceAUVertex: -0.004787985, minFaceAUVertex: -0.0196867)
             }
-//            if mouthLeft < 0.1, mouthRight < 0.1 {
-//                return
-//            }
-
-//            print(mouthLeft, mouthRight)
-//            if mouthLeft > mouthRight, mouthRightBS > 0.001 {
-//                leftScrollMainThread(ratio: CGFloat(mouthLeft))
-//
-//            } else if mouthRight > mouthLeft, mouthLeftBS > 0.001 {
-//                rightScrollMainThread(ratio: CGFloat(mouthRight))
-//            }
-            // print(mouthLeft, mouthRight)
             if mouthLeft > mouthRight {
                 leftScrollMainThread(ratio: CGFloat(mouthLeft))
 
