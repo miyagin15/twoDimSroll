@@ -277,12 +277,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
 
-//                if self.ratioLookDown > 0.65 {
-//                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-//                } else {
-//                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-//                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) + 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-//                }
             }
             // self.tableView.contentOffset = CGPoint(x: 0, y: self.tableView.contentOffset.y + 10*ratio*CGFloat(self.ratioChange))
         }
@@ -329,13 +323,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
 
-//                if self.ratioLookDown > 0.65 {
-//                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-//                } else {
-//                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-//                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-//                }
-//                self.myCollectionView.contentOffset = CGPoint(x: -100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
             }
         }
     }
@@ -378,13 +365,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
 
-                //                if self.ratioLookDown > 0.65 {
-                //                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                //                } else {
-                //                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                //                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                //                }
-                //                self.myCollectionView.contentOffset = CGPoint(x: -100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
             }
         }
     }
@@ -427,13 +407,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
 
-                //                if self.ratioLookDown > 0.65 {
-                //                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                //                } else {
-                //                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                //                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                //                }
-                //                self.myCollectionView.contentOffset = CGPoint(x: -100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
             }
         }
     }
