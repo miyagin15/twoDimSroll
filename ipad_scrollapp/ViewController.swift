@@ -151,8 +151,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     var operateView: UIView!
     var positionXY: [Int: [Double]]!
+
+    let functionalExpressionVerticalSlider = UISlider(frame: CGRect(x: 450, y: 300, width: 350, height: 30))
+    let functionalExpressionVerticalLabel = UILabel(frame: CGRect(x: 450, y: 100, width: 350, height: 30))
     override func viewDidLoad() {
         super.viewDidLoad()
+        functionalExpressionVerticalSlider.minimumValue = -1
+        functionalExpressionVerticalSlider.maximumValue = 1
+        functionalExpressionVerticalSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+        goalView.addSubview(functionalExpressionVerticalSlider)
+        goalView.addSubview(functionalExpressionVerticalLabel)
+
         decideGoalpositionTimeCount()
         initialCallibrationSettings()
         createTargetView()
@@ -275,14 +284,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
         }
-        functionalExpression.value = Float(realRatioValue)
-        functionalExpressionLabel.text = String(Float(realRatioValue))
+
         var outPutLPF_LR = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
         var outPutLPF_UD = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
         if (direction == "left") || (direction == "right") {
+            functionalExpression.value = Float(realRatioValue)
+            functionalExpressionLabel.text = String(Float(realRatioValue))
             outPutLPF_LR = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
             lastValueL = outPutLPF_LR
         } else if (direction == "up") || (direction == "down") {
+            functionalExpressionVerticalSlider.value = Float(-realRatioValue)
+            functionalExpressionVerticalLabel.text = String(Float(-realRatioValue))
             outPutLPF_UD = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
             lastValueU = outPutLPF_UD
         }
@@ -336,7 +348,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionY")
                     operateView.frame.origin.y = CGFloat(ClutchPosition)
                     userDefaults.set(operateView.frame.origin.y, forKey: "beforeOperateViewPositionY")
-                } else if maxValueR - 0.3 > outPutLPF_UD {
+                } else if maxValueU - 0.3 > outPutLPF_UD {
                     maxValueU = outPutLPF_UD
                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionY")
                     operateView.frame.origin.y = CGFloat(ClutchPosition)
