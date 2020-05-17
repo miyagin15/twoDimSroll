@@ -104,11 +104,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         dataAppendBool = true
     }
 
+    var firstStartPosition: CGPoint = CGPoint(x: 300, y: 330)
+
     @IBAction func startButton(_: Any) {
         // nowgoal_Data = []
         i = 0
         time = 0
         goalLabel.text = String(goalPositionInt[i])
+        operateView.frame.origin = firstStartPosition
 //        myCollectionView.contentOffset.x = firstStartPosition
 //        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
@@ -147,23 +150,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var positionXY: [Int: [Double]]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // goalPositionInt = Utility.goalPositionInt
-        // createScrollVIew()
         decideGoalpositionTimeCount()
-
         initialCallibrationSettings()
-        // 二次元の目標地点を追加
-        let drawView = DrawView(frame: goalView.bounds)
-        goalView.addSubview(drawView)
-        positionXY = drawView.getPosition(frame: goalView.bounds)
-        for (key, value) in positionXY {
-            print("\(key)はx:\(value[0]),y:\(value[1])です。")
-        }
-        // 動かすview生成
-        operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
-        let bgColor = UIColor.red
-        operateView.backgroundColor = bgColor
-        goalView.addSubview(operateView)
+        createTargetView()
+        createOperateView()
 
         sceneView.delegate = self
         // myCollectionView.contentOffset.x = firstStartPosition
@@ -178,17 +168,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
 
-//    // Cellの総数を返す
-//    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-//        return 100
-//    }
-//
-//    // Cellに値を設定する
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell: CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell
-//        cell.textLabel?.text = indexPath.row.description
-//        return cell
-//    }
+    private func createTargetView() {
+        // 二次元の目標地点を追加
+        let drawView = DrawView(frame: goalView.bounds)
+        goalView.addSubview(drawView)
+        positionXY = drawView.getPosition(frame: goalView.bounds)
+        for (key, value) in positionXY {
+            print("\(key)はx:\(value[0]),y:\(value[1])です。")
+        }
+    }
+
+    private func createOperateView() {
+        // 動かすview生成
+        operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
+        let bgColor = UIColor.red
+        operateView.backgroundColor = bgColor
+        goalView.addSubview(operateView)
+    }
 
     private func initialCallibrationSettings() {
         for x in 0 ... 11 {
@@ -202,14 +198,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             callibrationOrdinalPosition[x] = userDefaults.float(forKey: "普通" + callibrationArr[x])
         }
     }
-
-    // scrolViewを作成する
-//    private func createScrollVIew() {
-//        myCollectionView = Utility.createScrollView(directionString: "horizonal")
-//        myCollectionView.delegate = self
-//        myCollectionView.dataSource = self
-//        view.addSubview(myCollectionView)
-//    }
 
     private func decideGoalpositionTimeCount() {
         goalLabel.text = String(goalPositionInt[0])
@@ -276,7 +264,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
-
             }
             // self.tableView.contentOffset = CGPoint(x: 0, y: self.tableView.contentOffset.y + 10*ratio*CGFloat(self.ratioChange))
         }
@@ -322,16 +309,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
-
             }
         }
     }
 
     private func upScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-//            if self.operateView.frame.origin.y < 0 {
-//                return
-//            }
+            if self.operateView.frame.origin.y < 0 {
+                return
+            }
             self.functionalExpression.value = -Float(ratio)
             self.functionalExpressionLabel.text = String(Float(-ratio))
             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
@@ -364,16 +350,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
-
             }
         }
     }
 
     private func downScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-//            if self.operateView.frame.origin.y < 0 {
-//                return
-//            }
+            if self.operateView.frame.origin.y > 660 {
+                return
+            }
             self.functionalExpression.value = Float(ratio)
             self.functionalExpressionLabel.text = String(Float(ratio))
             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
@@ -406,7 +391,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
                 }
-
             }
         }
     }
@@ -516,9 +500,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
         }
-        print(positionXY[self.i])
-        let goal = goalPosition[self.i]
+
         DispatchQueue.main.async {
+            //        print(positionXY[self.i])
+            //        let goal = goalPosition[self.i]
             // frame.originはviewの左上なことに注意
             let operationViewPositionX = self.operateView.frame.origin.x + self.operateView.frame.width / 2
             let operationViewPositionY = self.operateView.frame.origin.y + self.operateView.frame.height / 2
@@ -620,13 +605,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 browInnerUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.053307146, minFaceAUVertex: 0.04667869)
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
-            print(browInnerUp)
+            }
             if browInnerUp > browDownLeft {
                 upScrollMainThread(ratio: CGFloat(browInnerUp))
             } else {
                 downScrollMainThread(ratio: CGFloat(browDownLeft))
             }
-        }
 
         case 1:
             DispatchQueue.main.async {
@@ -670,7 +654,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 browInnerUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.053307146, minFaceAUVertex: 0.04667869)
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
-
             }
             print(browInnerUp)
             if browInnerUp > browDownLeft {
