@@ -286,7 +286,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
 
         var outPutLPF_LR = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
-        var outPutLPF_UD = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
+        var outPutLPF_UD = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
         if (direction == "left") || (direction == "right") {
             functionalExpression.value = Float(realRatioValue)
             functionalExpressionLabel.text = String(Float(realRatioValue))
@@ -405,34 +405,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
             self.commonScroll(ratio: ratio, direction: "right")
-            /*
-             self.functionalExpression.value = Float(ratio)
-             self.functionalExpressionLabel.text = String(Float(ratio))
-             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
-             self.lastValueL = outPutLPF
-             if self.inputMethodString == "velocity" {
-                 let changedRatio = self.scrollRatioChange(ratio)
-                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                 self.operateView.frame.origin.x += CGFloat(self.ratioChange) * changedRatio
-             } else if self.inputMethodString == "position" {
-                 if self.maxValueR < outPutLPF {
-                     self.maxValueR = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
-                     self.operateView.frame.origin = CGPoint(x: CGFloat(ClutchPosition) + 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                     self.userDefaults.set(self.operateView.frame.origin.x, forKey: "nowCollectionViewPosition")
-                 } else if outPutLPF < 0.05 {
-                     self.maxValueR = 0.05
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.operateView.frame.origin = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.operateView.frame.origin.x, forKey: "beforeCollectionViewPosition")
-                 } else if self.maxValueR - 0.3 > outPutLPF {
-                     self.maxValueR = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.operateView.frame.origin = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.operateView.frame.origin.x, forKey: "beforeCollectionViewPosition")
-                 }
-             }
-             */
         }
     }
 
@@ -443,41 +415,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
             self.commonScroll(ratio: ratio, direction: "left")
-            /*
-             self.functionalExpression.value = -Float(ratio)
-             self.functionalExpressionLabel.text = String(Float(-ratio))
-             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
-             self.lastValueL = outPutLPF
-             if self.inputMethodString == "velocity" {
-                 let changedRatio = self.scrollRatioChange(ratio)
-                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                 self.operateView.frame.origin.x -= CGFloat(self.ratioChange) * changedRatio
-             } else if self.inputMethodString == "position" {
-                 return
-                 if self.maxValueL < outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                 } else if outPutLPF < 0.05 {
-                     self.maxValueL = 0.05
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-             //                } else if self.maxValueL > 0.8, outPutLPF < 0.4 {
-             //                    self.maxValueL = outPutLPF
-             //                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-             //                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-             //                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-             //                }
-                 } else if self.maxValueL - 0.3 > outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                 }
-             }
-             */
         }
     }
 
@@ -487,41 +424,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
             self.commonScroll(ratio: ratio, direction: "up")
-            /*
-             self.functionalExpression.value = -Float(ratio)
-             self.functionalExpressionLabel.text = String(Float(-ratio))
-             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
-             self.lastValueL = outPutLPF
-             if self.inputMethodString == "velocity" {
-                 let changedRatio = self.scrollRatioChange(ratio)
-                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                 self.operateView.frame.origin.y -= CGFloat(self.ratioChange) * changedRatio
-             } else if self.inputMethodString == "position" {
-                 return
-                 if self.maxValueL < outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                 } else if outPutLPF < 0.05 {
-                     self.maxValueL = 0.05
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                     //                } else if self.maxValueL > 0.8, outPutLPF < 0.4 {
-                     //                    self.maxValueL = outPutLPF
-                     //                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     //                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     //                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                     //                }
-                 } else if self.maxValueL - 0.3 > outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                 }
-             }
-             */
         }
     }
 
@@ -531,41 +433,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
             self.commonScroll(ratio: ratio, direction: "down")
-            /*
-             self.functionalExpression.value = Float(ratio)
-             self.functionalExpressionLabel.text = String(Float(ratio))
-             let outPutLPF = self.LPFRatio * self.lastValueL + (1 - self.LPFRatio) * ratio
-             self.lastValueL = outPutLPF
-             if self.inputMethodString == "velocity" {
-                 let changedRatio = self.scrollRatioChange(ratio)
-                 // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x - 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
-                 self.operateView.frame.origin.y += CGFloat(self.ratioChange) * changedRatio
-             } else if self.inputMethodString == "position" {
-                 return
-                 if self.maxValueL < outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "beforeCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition) - 100 * outPutLPF * CGFloat(self.ratioChange), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                 } else if outPutLPF < 0.05 {
-                     self.maxValueL = 0.05
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                     //                } else if self.maxValueL > 0.8, outPutLPF < 0.4 {
-                     //                    self.maxValueL = outPutLPF
-                     //                    let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     //                    self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     //                    self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                     //                }
-                 } else if self.maxValueL - 0.3 > outPutLPF {
-                     self.maxValueL = outPutLPF
-                     let ClutchPosition = self.userDefaults.float(forKey: "nowCollectionViewPosition")
-                     self.myCollectionView.contentOffset = CGPoint(x: CGFloat(ClutchPosition), y: 0)
-                     self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "beforeCollectionViewPosition")
-                 }
-             }
-             */
         }
     }
 
