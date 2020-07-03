@@ -354,48 +354,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     operateView.frame.origin.y = CGFloat(ClutchPosition)
                     userDefaults.set(operateView.frame.origin.y, forKey: "beforeOperateViewPositionY")
                 }
-            } /*
-             print(maxValueR)
-             if maxValueR < outPutLPF {
-                 maxValueR = outPutLPF
-                 if (direction == "left") || (direction == "right") {
-                     let ClutchPosition = userDefaults.float(forKey: "beforeOperateViewPositionX")
-                     let tempPosition1 = CGFloat(ClutchPosition)
-                     let tempPosition2 = directionSign * 100 * outPutLPF * CGFloat(ratioChange)
-                     operateView.frame.origin.x = tempPosition1 + tempPosition2
-                     userDefaults.set(operateView.frame.origin.x, forKey: "nowOperateViewPositionX")
-                 } else if (direction == "up") || (direction == "down") {
-                     let ClutchPosition = userDefaults.float(forKey: "beforeOperateViewPositionY")
-                     let tempPosition1 = CGFloat(ClutchPosition)
-                     let tempPosition2 = directionSign * 100 * outPutLPF * CGFloat(ratioChange)
-                     print(ClutchPosition, tempPosition2)
-                     operateView.frame.origin.y = tempPosition1 + tempPosition2
-                     userDefaults.set(operateView.frame.origin.y, forKey: "nowOperateViewPositionY")
-                 }
-             } else if outPutLPF < 0.05 {
-                 maxValueR = 0.05
-                 if (direction == "left") || (direction == "right") {
-                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionX")
-                     operateView.frame.origin.x = CGFloat(ClutchPosition)
-                     userDefaults.set(operateView.frame.origin.x, forKey: "beforeOperateViewPositionX")
-                 } else if (direction == "up") || (direction == "down") {
-                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionY")
-                     operateView.frame.origin.y = CGFloat(ClutchPosition)
-                     userDefaults.set(operateView.frame.origin.y, forKey: "beforeOperateViewPositionY")
-                 }
-             } else if maxValueR - 0.3 > outPutLPF {
-                 maxValueR = outPutLPF
-                 if (direction == "left") || (direction == "right") {
-                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionX")
-                     operateView.frame.origin.x = CGFloat(ClutchPosition)
-                     userDefaults.set(operateView.frame.origin.x, forKey: "beforeOperateViewPositionX")
-                 } else if (direction == "up") || (direction == "down") {
-                     let ClutchPosition = userDefaults.float(forKey: "nowOperateViewPositionY")
-                     operateView.frame.origin.y = CGFloat(ClutchPosition)
-                     userDefaults.set(operateView.frame.origin.y, forKey: "beforeOperateViewPositionY")
-                 }
-             }
-             */
+            }
         }
     }
 
