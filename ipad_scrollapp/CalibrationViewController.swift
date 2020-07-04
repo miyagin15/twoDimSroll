@@ -61,8 +61,13 @@ class CalibrationViewController: UIViewController, ARSCNViewDelegate {
     var mouthL: Float = 0
     var mouthR: Float = 0
 
+    let centerOfRipView = UIView(frame: CGRect(x: 350, y: 500, width: 10, height: 10))
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        centerOfRipView.backgroundColor = UIColor.red
+        view.addSubview(centerOfRipView)
 
         nameCSVField.text = userDefaults.string(forKey: "name")
         sceneView.delegate = self
@@ -157,6 +162,14 @@ class CalibrationViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_: SCNSceneRenderer, didUpdate _: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else {
             return
+        }
+        //  認識していたら青色に
+        DispatchQueue.main.async {
+            print("sa")
+//            self.centerOfRipView.center.x = self.centerOfRipView.center.x + CGFloat(faceAnchor.geometry.vertices[24][0]) * 100
+//            self.centerOfRipView.center.y = self.centerOfRipView.center.y + CGFloat(faceAnchor.geometry.vertices[24][1]) * 100
+            self.centerOfRipView.frame = CGRect(x: 350 + CGFloat(faceAnchor.geometry.vertices[24][0] * 10000), y: 500 + CGFloat(faceAnchor.geometry.vertices[24][1] * 10000), width: 10, height: 10)
+            self.view.addSubview(self.centerOfRipView)
         }
 
 //        let callibrationArr:[String]=["口左","口右","口上","口下","頰右","頰左","眉上","眉下","右笑","左笑","普通","a","b"]
