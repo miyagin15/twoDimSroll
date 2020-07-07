@@ -154,6 +154,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     let functionalExpressionVerticalSlider = UISlider(frame: CGRect(x: 450, y: 300, width: 350, height: 30))
     let functionalExpressionVerticalLabel = UILabel(frame: CGRect(x: 450, y: 100, width: 350, height: 30))
+
+    let centerOfRipView = UIView(frame: CGRect(x: 350, y: 500, width: 10, height: 10))
+
     override func viewDidLoad() {
         super.viewDidLoad()
         functionalExpressionVerticalSlider.minimumValue = -1
@@ -166,6 +169,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         initialCallibrationSettings()
         createTargetView()
         createOperateView()
+
+        centerOfRipView.backgroundColor = UIColor.blue
+        goalView.addSubview(centerOfRipView)
 
         sceneView.delegate = self
         // myCollectionView.contentOffset.x = firstStartPosition
@@ -193,8 +199,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private func createOperateView() {
         // 動かすview生成
         operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
-        let bgColor = UIColor.red
-        operateView.backgroundColor = bgColor
+        operateView.backgroundColor = UIColor.red
         goalView.addSubview(operateView)
     }
 
@@ -240,11 +245,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // NetWork.stopConnection()
     }
 
-    var lastValueR: CGFloat = 0
     // LPFの比率
     var LPFRatio: CGFloat = 0.5
+
+    var lastValueR: CGFloat = 0
     var maxValueR: CGFloat = 0
-    // right scroll
 
     var lastValueL: CGFloat = 0
     var maxValueL: CGFloat = 0
@@ -285,18 +290,41 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
 
-        var outPutLPF_LR = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
-        var outPutLPF_UD = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
+        var outPutLPF_R = LPFRatio * lastValueR + (1 - LPFRatio) * ratio
+        var outPutLPF_L = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
+        var outPutLPF_U = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
+        var outPutLPF_D = LPFRatio * lastValueD + (1 - LPFRatio) * ratio
+        var outPutLPF_LR: CGFloat = 0
+        var outPutLPF_UD: CGFloat = 0
         if (direction == "left") || (direction == "right") {
             functionalExpression.value = Float(realRatioValue)
             functionalExpressionLabel.text = String(Float(realRatioValue))
-            outPutLPF_LR = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
-            lastValueL = outPutLPF_LR
+            if direction == "left" {
+                outPutLPF_L = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
+                lastValueL = outPutLPF_L
+                outPutLPF_LR = lastValueL
+                lastValueR = 0
+            } else if direction == "right" {
+                outPutLPF_R = LPFRatio * lastValueR + (1 - LPFRatio) * ratio
+                lastValueR = outPutLPF_R
+                outPutLPF_LR = lastValueR
+                lastValueL = 0
+            }
+
         } else if (direction == "up") || (direction == "down") {
             functionalExpressionVerticalSlider.value = Float(-realRatioValue)
             functionalExpressionVerticalLabel.text = String(Float(-realRatioValue))
-            outPutLPF_UD = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
-            lastValueU = outPutLPF_UD
+            if direction == "up" {
+                outPutLPF_U = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
+                lastValueU = outPutLPF_U
+                outPutLPF_UD = lastValueU
+                lastValueD = 0
+            } else if direction == "down" {
+                outPutLPF_D = LPFRatio * lastValueD + (1 - LPFRatio) * ratio
+                lastValueD = outPutLPF_D
+                outPutLPF_UD = lastValueD
+                lastValueU = 0
+            }
         }
         if inputMethodString == "velocity" {
             let changedRatio = scrollRatioChange(ratio)
@@ -691,9 +719,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // let callibrationArr:[String]=["口左","口右","口上","口下","頰右","頰左","眉上","眉下","右笑","左笑","普通","a","b"]
             var mouthUp: Float = 0
             var mouthDown: Float = 0
+            var mouthLeft: Float = 0
+            var mouthRight: Float = 0
+
             if callibrationUseBool == true {
                 mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[2], minFaceAUVertex: callibrationOrdinalPosition[2])
                 mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[3], minFaceAUVertex: callibrationOrdinalPosition[3])
+                mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[0], minFaceAUVertex: callibrationOrdinalPosition[0])
+                // print("mouthLeft", mouthLeft)
+                mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[1], minFaceAUVertex: callibrationOrdinalPosition[1])
             } else {
                 mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.03719348, minFaceAUVertex: -0.04107782)
                 mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.04889179, minFaceAUVertex: -0.04107782)
@@ -701,11 +735,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //             if mouthUp < 0.1, mouthDown < 0.1 {
 //                 return
 //             }
+            var xMove: Float = 0
+            var yMove: Float = 0
             if mouthUp > mouthDown {
-                leftScrollMainThread(ratio: CGFloat(mouthUp))
+                upScrollMainThread(ratio: CGFloat(mouthUp))
+                yMove = -mouthUp
             } else {
-                rightScrollMainThread(ratio: CGFloat(mouthDown))
+                downScrollMainThread(ratio: CGFloat(mouthDown))
+                yMove = mouthDown
             }
+            if mouthLeft > mouthRight {
+                leftScrollMainThread(ratio: CGFloat(mouthLeft))
+                xMove = -mouthLeft
+            } else {
+                rightScrollMainThread(ratio: CGFloat(mouthRight))
+                xMove = mouthRight
+            }
+            DispatchQueue.main.async {
+                self.operateView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
+//                self.centerOfRipView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
+            }
+
         case 4:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("cheekPuff", for: .normal)

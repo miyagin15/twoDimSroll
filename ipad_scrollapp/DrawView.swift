@@ -39,8 +39,8 @@ class DrawView: UIView {
         // 円
 //        let width = Double(UIScreen.main.bounds.size.width / 2
 //      let height = Double(UIScreen.main.bounds.size.height / 2)
-        let width = Double(frame.width)
-        let height = Double(frame.height)
+        let width = Double(frame.width) // width: 619.0
+        let height = Double(frame.height) // height: 695.0
         for i in 0 ..< 13 {
             let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
