@@ -123,6 +123,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var repeatNumberLabel: UILabel!
 
     @IBOutlet var goalView: UIView!
+
+    @IBOutlet var transparentView: UIView!
     @IBOutlet var targetView: UIView!
     var repeatNumber: Int = 1
 
@@ -153,12 +155,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var positionXY: [Int: [Double]]!
 
     let functionalExpressionVerticalSlider = UISlider(frame: CGRect(x: 450, y: 300, width: 350, height: 30))
-    let functionalExpressionVerticalLabel = UILabel(frame: CGRect(x: 450, y: 100, width: 350, height: 30))
+    let functionalExpressionVerticalLabel = UILabel(frame: CGRect(x: 450, y: 50, width: 350, height: 30))
 
-    let centerOfRipView = UIView(frame: CGRect(x: 350, y: 500, width: 10, height: 10))
+    // let centerOfRipView = UIView(frame: CGRect(x: 350, y: 500, width: 10, height: 10))
+    var acceptableRange: Double!
+    var drawView: DrawView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        goalView.addSubview(transparentView)
         functionalExpressionVerticalSlider.minimumValue = -1
         functionalExpressionVerticalSlider.maximumValue = 1
         functionalExpressionVerticalSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
@@ -167,11 +172,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         decideGoalpositionTimeCount()
         initialCallibrationSettings()
+        drawView = DrawView(frame: goalView.bounds)
+        acceptableRange = Double(drawView.radius)
+
         createTargetView()
         createOperateView()
 
-        centerOfRipView.backgroundColor = UIColor.blue
-        goalView.addSubview(centerOfRipView)
+        // centerOfRipView.backgroundColor = UIColor.blue
+        // goalView.addSubview(centerOfRipView)
 
         sceneView.delegate = self
         // myCollectionView.contentOffset.x = firstStartPosition
@@ -188,8 +196,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func createTargetView() {
         // 二次元の目標地点を追加
-        let drawView = DrawView(frame: goalView.bounds)
-        goalView.addSubview(drawView)
+        transparentView.addSubview(drawView)
         positionXY = drawView.getPosition(frame: goalView.bounds)
         for (key, value) in positionXY {
             print("\(key)はx:\(value[0]),y:\(value[1])です。")
@@ -200,7 +207,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 動かすview生成
         operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
         operateView.backgroundColor = UIColor.red
-        goalView.addSubview(operateView)
+        transparentView.addSubview(operateView)
     }
 
     private func initialCallibrationSettings() {
@@ -298,7 +305,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         var outPutLPF_UD: CGFloat = 0
         if (direction == "left") || (direction == "right") {
             functionalExpression.value = Float(realRatioValue)
-            functionalExpressionLabel.text = String(Float(realRatioValue))
+            functionalExpressionLabel.text = "X:" + String(Float(realRatioValue))
             if direction == "left" {
                 outPutLPF_L = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
                 lastValueL = outPutLPF_L
@@ -313,7 +320,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         } else if (direction == "up") || (direction == "down") {
             functionalExpressionVerticalSlider.value = Float(-realRatioValue)
-            functionalExpressionVerticalLabel.text = String(Float(-realRatioValue))
+            functionalExpressionVerticalLabel.text = "Y:" + String(Float(-realRatioValue))
             if direction == "up" {
                 outPutLPF_U = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
                 lastValueU = outPutLPF_U
@@ -518,12 +525,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let operationViewPositionX = self.operateView.frame.origin.x + self.operateView.frame.width / 2
             let operationViewPositionY = self.operateView.frame.origin.y + self.operateView.frame.height / 2
             let distanceFromCentral = pow(Double(operationViewPositionX) - self.positionXY[goalPositionInt[self.i]]![0], 2) + pow(Double(operationViewPositionY) - self.positionXY[goalPositionInt[self.i]]![1], 2)
-            if distanceFromCentral < 900.0 {
+            if distanceFromCentral < self.acceptableRange * self.acceptableRange {
                 print("クリア")
                 self.time = self.time + 1
                 self.timeCount.value = Float(self.time)
 
                 if self.time > 60 {
+                    self.goalView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
+                    self.goalView.addSubview(self.drawView.nextDraw(number: goalPositionInt[self.i + 1]))
                     print("クリア2")
                     AudioServicesPlaySystemSound(self.sound)
                     if self.i < goalPositionInt.count - 1 {

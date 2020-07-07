@@ -10,28 +10,47 @@ import Darwin
 import UIKit
 
 class DrawView: UIView {
+    var radius: CGFloat = 40
+    var halfDistance: Double = 200
+    var positionXY: [Int: [Double]] = [:]
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
-    }
-
-    func getPosition(frame: CGRect) -> [Int: [Double]] {
-        var positionXY: [Int: [Double]] = [:]
         let width = Double(frame.width)
         let height = Double(frame.height)
         for i in 0 ..< 13 {
             let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
-            let cicleX = width / 2 + width / 3 * cos(θ)
-            let cixleY = height / 2 + width / 3 * sin(θ)
+            let cicleX = width / 2 + halfDistance * cos(θ) // halfDistance=width/3
+            let cixleY = height / 2 + halfDistance * sin(θ)
             positionXY.updateValue([cicleX, cixleY], forKey: i)
         }
-        print(positionXY)
+    }
+
+    func getPosition(frame _: CGRect) -> [Int: [Double]] {
         return positionXY
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func clearDraw(number: Int) -> UIView {
+        let circle = UIView()
+        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2.3, height: radius * 2)
+        circle.backgroundColor = .blue
+        circle.alpha = 0.3
+        circle.layer.cornerRadius = radius * 2.3 / 2
+        return circle
+    }
+
+    func nextDraw(number: Int) -> UIView {
+        let circle = UIView()
+        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2.3, height: radius * 2)
+        circle.backgroundColor = .green
+        circle.alpha = 0.3
+        circle.layer.cornerRadius = radius * 2.3 / 2
+        return circle
     }
 
     override func draw(_: CGRect) {
@@ -44,14 +63,14 @@ class DrawView: UIView {
         for i in 0 ..< 13 {
             let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
-            let cicleX = width / 2 + width / 3 * cos(θ)
-            let cixleY = height / 2 + width / 3 * sin(θ)
+            let cicleX = width / 2 + halfDistance * cos(θ)
+            let cicleY = height / 2 + halfDistance * sin(θ)
             // 文字を書く
-            String(i).draw(at: CGPoint(x: cicleX, y: cixleY), withAttributes: [
+            String(i).draw(at: CGPoint(x: cicleX, y: cicleY), withAttributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.blue,
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 50),
             ])
-            let circle = UIBezierPath(arcCenter: CGPoint(x: cicleX, y: cixleY), radius: 30, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
+            let circle = UIBezierPath(arcCenter: CGPoint(x: cicleX, y: cicleY), radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
             // 内側の色
             UIColor(red: 0, green: 0, blue: 1, alpha: 0.3).setFill()
             // 内側を塗りつぶす
