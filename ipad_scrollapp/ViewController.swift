@@ -124,7 +124,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var goalView: UIView!
 
-    @IBOutlet var transparentView: UIView!
     @IBOutlet var targetView: UIView!
     var repeatNumber: Int = 1
 
@@ -163,7 +162,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        goalView.addSubview(transparentView)
         functionalExpressionVerticalSlider.minimumValue = -1
         functionalExpressionVerticalSlider.maximumValue = 1
         functionalExpressionVerticalSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
@@ -196,7 +194,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func createTargetView() {
         // 二次元の目標地点を追加
-        transparentView.addSubview(drawView)
+        goalView.addSubview(drawView)
         positionXY = drawView.getPosition(frame: goalView.bounds)
         for (key, value) in positionXY {
             print("\(key)はx:\(value[0]),y:\(value[1])です。")
@@ -207,7 +205,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // 動かすview生成
         operateView = UIView(frame: CGRect(x: goalView.frame.width / 2, y: goalView.frame.height / 2, width: 10, height: 10))
         operateView.backgroundColor = UIColor.red
-        transparentView.addSubview(operateView)
+        goalView.addSubview(operateView)
     }
 
     private func initialCallibrationSettings() {
@@ -531,11 +529,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.timeCount.value = Float(self.time)
 
                 if self.time > 60 {
-                    self.goalView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
-                    self.goalView.addSubview(self.drawView.nextDraw(number: goalPositionInt[self.i + 1]))
                     print("クリア2")
                     AudioServicesPlaySystemSound(self.sound)
                     if self.i < goalPositionInt.count - 1 {
+                        self.goalView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
+                        self.goalView.addSubview(self.drawView.nextDraw(number: goalPositionInt[self.i + 1]))
                         self.i = self.i + 1
                         self.timeCount.value = 0
                         self.buttonLabel.backgroundColor = UIColor.blue
@@ -554,6 +552,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             self.workTime = Float(self.nowgoal_Data.count / 240)
                             self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
                         }
+
                         self.dataAppendBool = false
                         self.repeatNumber = self.repeatNumber + 1
                         self.time = 0

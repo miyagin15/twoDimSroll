@@ -157,14 +157,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1HS-e1-5Tk" userLabel="goalView">
                                 <rect key="frame" x="0.0" y="119" width="619" height="695"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyI-W8-QwK" userLabel="transparentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="619" height="695"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" red="0.86983146646434384" green="0.87379523197261022" blue="0.88568652849740936" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -231,7 +223,6 @@
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="timeCount" destination="bAq-Wh-VV3" id="79w-Aa-Ovc"/>
                         <outlet property="tracking" destination="FzM-5d-oAt" id="lFO-sK-VZy"/>
-                        <outlet property="transparentView" destination="qyI-W8-QwK" id="Nxt-6T-f8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

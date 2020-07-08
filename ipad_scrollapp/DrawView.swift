@@ -37,19 +37,19 @@ class DrawView: UIView {
 
     func clearDraw(number: Int) -> UIView {
         let circle = UIView()
-        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2.3, height: radius * 2)
+        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2, height: radius * 2)
         circle.backgroundColor = .blue
-        circle.alpha = 0.3
-        circle.layer.cornerRadius = radius * 2.3 / 2
+        circle.alpha = 0.6
+        circle.layer.cornerRadius = radius * 2 / 2
         return circle
     }
 
     func nextDraw(number: Int) -> UIView {
         let circle = UIView()
-        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2.3, height: radius * 2)
+        circle.frame = CGRect(x: CGFloat(positionXY[number]![0]) - radius, y: CGFloat(positionXY[number]![1]) - radius, width: radius * 2, height: radius * 2)
         circle.backgroundColor = .green
-        circle.alpha = 0.3
-        circle.layer.cornerRadius = radius * 2.3 / 2
+        circle.alpha = 0.6
+        circle.layer.cornerRadius = radius * 2 / 2
         return circle
     }
 
@@ -72,7 +72,7 @@ class DrawView: UIView {
             ])
             let circle = UIBezierPath(arcCenter: CGPoint(x: cicleX, y: cicleY), radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi) * 2, clockwise: true)
             // 内側の色
-            UIColor(red: 0, green: 0, blue: 1, alpha: 0.3).setFill()
+            UIColor(red: 1, green: 1, blue: 1, alpha: 0.0).setFill()
             // 内側を塗りつぶす
             circle.fill()
             // 線の色
