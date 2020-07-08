@@ -11,14 +11,14 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController storyboardIdentifier="HorizonalViewController" id="BV1-FR-VrT" customClass="ViewController" customModule="twoDim" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="U0K-SW-4ec">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="814"/>
                             </arscnView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LqD-ud-hH5">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqD-ud-hH5">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3cu-zm-MT0"/>
@@ -67,7 +67,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LH-x5-56R" userLabel="LabelView">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LH-x5-56R" userLabel="LabelView">
                                 <rect key="frame" x="0.0" y="50" width="1194" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-jI-5PZ">
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="6" y="8" width="274" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-02-MK5">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-02-MK5">
                                         <rect key="frame" x="1114" y="0.0" width="80" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Gao-SG-A5F"/>
@@ -108,7 +108,7 @@
                                             <action selector="toConfig:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Zcx-yA-gdT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt1-oE-uav">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt1-oE-uav">
                                         <rect key="frame" x="1008" y="28" width="186" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="186" id="Irm-tt-Wlh"/>
@@ -158,6 +158,12 @@
                                 <rect key="frame" x="0.0" y="119" width="619" height="695"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86983146646434384" green="0.87379523197261022" blue="0.88568652849740936" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxA-jq-gL9" userLabel="transparentView">
+                                <rect key="frame" x="0.0" y="119" width="619" height="695"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inW-SV-gjn">
@@ -223,6 +229,7 @@
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="timeCount" destination="bAq-Wh-VV3" id="79w-Aa-Ovc"/>
                         <outlet property="tracking" destination="FzM-5d-oAt" id="lFO-sK-VZy"/>
+                        <outlet property="transparentView" destination="AxA-jq-gL9" id="wE2-gu-YdQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

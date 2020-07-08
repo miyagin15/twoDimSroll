@@ -102,6 +102,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        myCollectionView.contentOffset.x = firstStartPosition
 //        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
+        // views削除
+        var subviews = transparentView.subviews
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
     }
 
     var firstStartPosition: CGPoint = CGPoint(x: 300, y: 330)
@@ -124,6 +129,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var goalView: UIView!
 
+    @IBOutlet var transparentView: UIView!
     @IBOutlet var targetView: UIView!
     var repeatNumber: Int = 1
 
@@ -532,8 +538,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     print("クリア2")
                     AudioServicesPlaySystemSound(self.sound)
                     if self.i < goalPositionInt.count - 1 {
-                        self.goalView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
-                        self.goalView.addSubview(self.drawView.nextDraw(number: goalPositionInt[self.i + 1]))
+                        self.transparentView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
+                        self.transparentView.addSubview(self.drawView.nextDraw(number: goalPositionInt[self.i + 1]))
                         self.i = self.i + 1
                         self.timeCount.value = 0
                         self.buttonLabel.backgroundColor = UIColor.blue
