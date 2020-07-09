@@ -103,7 +103,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
         // views削除
-        var subviews = transparentView.subviews
+        removeAllSubviews(parentView: transparentView)
+    }
+
+    func removeAllSubviews(parentView: UIView) {
+        let subviews = parentView.subviews
         for subview in subviews {
             subview.removeFromSuperview()
         }
@@ -123,6 +127,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        myCollectionView.contentOffset.x = firstStartPosition
 //        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
+        removeAllSubviews(parentView: transparentView)
     }
 
     @IBOutlet var repeatNumberLabel: UILabel!
