@@ -22,6 +22,7 @@
 		5E2DC594238BB1410012A8AD /* ipad_scrollappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */; };
 		684E2C8AA591A88248009CC2 /* Pods_ipad_scrollappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */; };
 		6F40FD59C5DE2025AB739259 /* Pods_ipad_scrollappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */; };
+		9EE6279199489A6373A05E2D /* Pods_ipad_scrollapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE890EB32FEA0B5F50274BCB /* Pods_ipad_scrollapp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE6279199489A6373A05E2D /* Pods_ipad_scrollapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

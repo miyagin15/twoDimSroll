@@ -300,6 +300,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MxD-LU-KkY" userLabel="targetSizeField">
+                                <rect key="frame" x="729" y="89" width="95" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.86983146649999998" green="0.87379523199999998" blue="0.88568652849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name,  targetSize,  distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX7-1a-z3l">
+                                <rect key="frame" x="637" y="78" width="409" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MmW-Ht-gdJ" userLabel="targetSizeField">
+                                <rect key="frame" x="866" y="89" width="119" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.86983146649999998" green="0.87379523199999998" blue="0.88568652849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -315,8 +336,10 @@
                         <viewLayoutGuide key="safeArea" id="unn-k1-hVc"/>
                     </view>
                     <connections>
+                        <outlet property="distanceField" destination="MmW-Ht-gdJ" id="J6d-Vh-4fM"/>
                         <outlet property="nameCSVField" destination="uhh-Be-aNv" id="d2u-7E-CFB"/>
                         <outlet property="sceneView" destination="BjY-dN-mmH" id="ox1-2G-eTk"/>
+                        <outlet property="targetSizeField" destination="MxD-LU-KkY" id="kc0-1t-gCO"/>
                         <outlet property="tracking" destination="GxE-lQ-HwJ" id="kym-8V-nFd"/>
                     </connections>
                 </viewController>

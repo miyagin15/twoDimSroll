@@ -13,11 +13,15 @@ class DrawView: UIView {
     var radius: CGFloat = 40
     var halfDistance: Double = 200
     var positionXY: [Int: [Double]] = [:]
+    let userDefaults = UserDefaults.standard
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
         let width = Double(frame.width)
         let height = Double(frame.height)
+        radius = CGFloat(userDefaults.float(forKey: "targetSize"))
+        halfDistance = Double(userDefaults.float(forKey: "distance"))
         for i in 0 ..< 13 {
             let degree = (Double(i) * 360 / 13)
             let θ = Double.pi / Double(180) * Double(degree)
