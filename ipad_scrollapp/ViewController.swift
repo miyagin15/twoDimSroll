@@ -557,12 +557,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     } else {
                         // self.myCollectionView.contentOffset.x = firstStartPosition
                         self.operateView.frame.origin = CGPoint(x: self.goalView.frame.width / 2, y: self.goalView.frame.height / 2)
+                        // 2回目以降
                         if self.repeatNumber != 1 {
                             self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime) + "秒かかった"
                             self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
                         } else {
                             self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
-                            self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
+                            let ID: Double = log2(Double(self.drawView.halfDistance) / Double(self.drawView.radius) + 1)
+                            let TP: Double = ID * 13 / Double(self.workTime - 12)
+                            self.goalLabel.text = "終了." + String(self.workTime) + "sかかった." + "ID:\(ID),TP:\(TP)"
+                            print("ID:\(ID),TP:\(TP)")
                         }
 
                         self.dataAppendBool = false
