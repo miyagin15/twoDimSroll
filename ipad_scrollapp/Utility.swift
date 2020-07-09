@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
-// let goalPositionInt: [Int] = [9, 11, 8, 12, 7, 13, 40, 13]
-let goalPositionInt: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
+let numberColumnsOfCsvFile: Int = 6
+let Fps: Int = 60
+let ProductOfColumnsAndFps: Int = numberColumnsOfCsvFile * Fps
+
 let firstStartPosition: CGFloat = 800
 let thresholdPositionInput: CGFloat = 0.05
 class Utility {
@@ -137,12 +139,12 @@ class Utility {
             }
         }
 
-        fileStrData += "position,goalPosition\n"
+        fileStrData += "goalPositionX,goalPositionY,operatiViewX,operatiViewY,ratioX,ratioY\n"
         for i in 1 ... fileArrData.count {
-            if i % 4 != 0 {
+            if i % numberColumnsOfCsvFile != 0 {
                 fileStrData += String(fileArrData[i - 1]) + ","
             }
-            if i % 4 == 0 {
+            if i % numberColumnsOfCsvFile == 0 {
                 fileStrData += String(fileArrData[i - 1]) + "\n"
             }
         }

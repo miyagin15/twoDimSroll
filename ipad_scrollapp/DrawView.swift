@@ -8,10 +8,12 @@
 
 import Darwin
 import UIKit
-
+// let goalPositionInt: [Int] = [9, 11, 8, 12, 7, 13, 40, 13]
+let goalPositionInt: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
 class DrawView: UIView {
     var radius: CGFloat = 40
     var halfDistance: Double = 200
+    var targetNumber: Int = 13
     var positionXY: [Int: [Double]] = [:]
     let userDefaults = UserDefaults.standard
 
@@ -22,8 +24,8 @@ class DrawView: UIView {
         let height = Double(frame.height)
         radius = CGFloat(userDefaults.float(forKey: "targetSize"))
         halfDistance = Double(userDefaults.float(forKey: "distance"))
-        for i in 0 ..< 13 {
-            let degree = (Double(i) * 360 / 13)
+        for i in 0 ..< targetNumber {
+            let degree = (Double(i) * 360 / Double(targetNumber))
             let θ = Double.pi / Double(180) * Double(degree)
             let cicleX = width / 2 + halfDistance * cos(θ) // halfDistance=width/3
             let cixleY = height / 2 + halfDistance * sin(θ)
@@ -62,13 +64,16 @@ class DrawView: UIView {
         // 円
 //        let width = Double(UIScreen.main.bounds.size.width / 2
 //      let height = Double(UIScreen.main.bounds.size.height / 2)
-        let width = Double(frame.width) // width: 619.0
-        let height = Double(frame.height) // height: 695.0
-        for i in 0 ..< 13 {
-            let degree = (Double(i) * 360 / 13)
-            let θ = Double.pi / Double(180) * Double(degree)
-            let cicleX = width / 2 + halfDistance * cos(θ)
-            let cicleY = height / 2 + halfDistance * sin(θ)
+//        let width = Double(frame.width) // width: 619.0
+//        let height = Double(frame.height) // height: 695.0
+        for i in 0 ..< positionXY.count {
+//            let degree = (Double(i) * 360 / 13)
+//            let θ = Double.pi / Double(180) * Double(degree)
+//            let cicleX = width / 2 + halfDistance * cos(θ)
+//            let cicleY = height / 2 + halfDistance * sin(θ)
+            let cicleX = positionXY[i]![0]
+            let cicleY = positionXY[i]![1]
+
             // 文字を書く
             String(i).draw(at: CGPoint(x: cicleX, y: cicleY), withAttributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.blue,

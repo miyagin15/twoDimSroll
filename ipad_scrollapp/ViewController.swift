@@ -149,7 +149,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // ゴールの目標セルを決める
     // var goalPositionInt: [Int] = [15, 14, 13, 12, 11, 10, 20, 16, 17, 18, 19]
     // ゴールの目標位置を決める.数だけは合わせる必要がある
-    var goalPosition: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
+    // var goalPosition: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
+
     private var tapData: [[Float]] = [[]]
     private var nowgoal_Data: [Float] = []
     let callibrationArr: [String] = ["口左", "口右", "口上", "口下", "頰右", "頰左", "眉上", "眉下", "右笑", "左笑", "上唇", "下唇", "普通"]
@@ -234,9 +235,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func decideGoalpositionTimeCount() {
         goalLabel.text = String(goalPositionInt[0])
-        for i in 0 ..< goalPositionInt.count {
-            goalPosition[i] = goalPositionInt[i] * 100 - 200
-        }
+//        for i in 0 ..< goalPositionInt.count {
+//            goalPosition[i] = goalPositionInt[i] * 100 - 200
+//        }
         timeCount.maximumValue = 60
         timeCount.minimumValue = 0
         timeCount.value = 0
@@ -517,11 +518,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //  認識していたら青色に
         DispatchQueue.main.async {
-            if self.nowgoal_Data.count % 240 == 0 {
-                self.orietationLabel.text = String(Float(self.nowgoal_Data.count / 240) - self.workTime)
+            if self.nowgoal_Data.count % ProductOfColumnsAndFps == 0 {
+                self.orietationLabel.text = String(Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime)
                 //                self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
                 // print(self.tableView.contentOffset.y)
-                if (Float(self.nowgoal_Data.count / 240) - self.workTime) > 60 {
+                if (Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime) > Float(Fps) {
                     self.inputClutchView.backgroundColor = UIColor.white
                 }
             }
@@ -557,10 +558,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         // self.myCollectionView.contentOffset.x = firstStartPosition
                         self.operateView.frame.origin = CGPoint(x: self.goalView.frame.width / 2, y: self.goalView.frame.height / 2)
                         if self.repeatNumber != 1 {
-                            self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / 240) - self.workTime) + "秒かかった"
-                            self.workTime = Float(self.nowgoal_Data.count / 240)
+                            self.goalLabel.text = "終了!" + String(Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime) + "秒かかった"
+                            self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
                         } else {
-                            self.workTime = Float(self.nowgoal_Data.count / 240)
+                            self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
                             self.goalLabel.text = "終了." + String(self.workTime) + "sかかった"
                         }
 
@@ -588,6 +589,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.nowgoal_Data.append(Float(self.positionXY[goalPositionInt[self.i]]![1]))
                     self.nowgoal_Data.append(Float(self.operateView.frame.origin.x))
                     self.nowgoal_Data.append(Float(self.operateView.frame.origin.y))
+                    self.nowgoal_Data.append(Float(self.functionalExpression.value))
+                    self.nowgoal_Data.append(Float(self.functionalExpressionVerticalSlider.value))
                 }
                 // print(Float(self.tableViewPosition))
                 // データをパソコンに送る(今の場所と目標地点)
