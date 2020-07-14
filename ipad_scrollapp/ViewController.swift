@@ -172,6 +172,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var acceptableRange: Double!
     var drawView: DrawView!
 
+    lazy var skView: SKView = {
+        let view = SKView()
+        view.isMultipleTouchEnabled = true
+        view.backgroundColor = .clear
+        view.isHidden = false
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         functionalExpressionVerticalSlider.minimumValue = -1
@@ -196,6 +204,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         //timeInterval秒に一回update関数を動かす
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+
+        setupSKView()
+        setupSKViewScene()
+        NotificationCenter.default.addObserver(forName: joystickNotificationName, object: nil, queue: OperationQueue.main) { notification in
+            guard let userInfo = notification.userInfo else { return }
+            let data = userInfo["data"] as! AnalogJoystickData
+            print(data.description)
+        }
+    }
+
+    func setupSKView() {
+        transparentView.addSubview(skView)
+        skView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 180)
+    }
+
+    func setupSKViewScene() {
+        let scene = ARJoystickSKScene(size: CGSize(width: transparentView.bounds.size.width, height: 180))
+        scene.scaleMode = .resizeFill
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        //    skView.showsFPS = true
+        //    skView.showsNodeCount = true
+        //    skView.showsPhysics = true
     }
 
     @objc func update() {
