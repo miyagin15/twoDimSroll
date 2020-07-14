@@ -209,7 +209,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         goalView.addSubview(drawView)
         positionXY = drawView.getPosition(frame: goalView.bounds)
         for (key, value) in positionXY {
-            print("\(key)はx:\(value[0]),y:\(value[1])です。")
+            print("\(key)はx:\(value[0]),y:\(value[1])です")
         }
     }
 
