@@ -712,22 +712,32 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
 
         case 4:
-            DispatchQueue.main.async {
-                self.buttonLabel.setTitle("hands", for: .normal)
-                if self.touched == true {
-                    self.operateView.frame.origin.x = 300 + CGFloat(self.joystickX * joystickVelocityMultiplier) * 50
-                    self.operateView.frame.origin.y = 400 - CGFloat(self.joystickY * joystickVelocityMultiplier) * 50
-                }
-                self.touched = false
-            }
 //            DispatchQueue.main.async {
 //                self.buttonLabel.setTitle("hands", for: .normal)
 //                if self.touched == true {
-//                    self.operateView.frame.origin.x += CGFloat(self.joystickX * joystickVelocityMultiplier)
-//                    self.operateView.frame.origin.y -= CGFloat(self.joystickY * joystickVelocityMultiplier)
+//                    self.operateView.frame.origin.x = 300 + CGFloat(self.joystickX * joystickVelocityMultiplier) * 50
+//                    self.operateView.frame.origin.y = 400 - CGFloat(self.joystickY * joystickVelocityMultiplier) * 50
 //                }
 //                self.touched = false
 //            }
+            DispatchQueue.main.async {
+                self.buttonLabel.setTitle("hands", for: .normal)
+                if self.touched == true {
+//                    self.operateView.frame.origin.x += CGFloat(self.joystickX * joystickVelocityMultiplier)
+//                    self.operateView.frame.origin.y -= CGFloat(self.joystickY * joystickVelocityMultiplier)
+                    if CGFloat(self.joystickX) > 0 {
+                        self.rightScrollMainThread(ratio: CGFloat(self.joystickX * joystickVelocityMultiplier))
+                    } else if CGFloat(self.joystickX) < 0 {
+                        self.leftScrollMainThread(ratio: -CGFloat(self.joystickX * joystickVelocityMultiplier))
+                    }
+                    if CGFloat(self.joystickY) > 0 {
+                        self.upScrollMainThread(ratio: CGFloat(self.joystickY * joystickVelocityMultiplier))
+                    } else if CGFloat(self.joystickY) < 0 {
+                        self.downScrollMainThread(ratio: -CGFloat(self.joystickY * joystickVelocityMultiplier))
+                    }
+                }
+                self.touched = false
+            }
         case 5:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("ripRoll", for: .normal)
