@@ -384,7 +384,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if inputMethodString == "velocity" {
-            let changedRatio = scrollRatioChange(ratio)
+            var changedRatio = scrollRatioChange(ratio)
+//            if lastValueD > 0.3, lastValueL > 0.3 || lastValueU > 0.3, lastValueL > 0.3 ||
+//                lastValueD > 0.3, lastValueR > 0.3 || lastValueU > 0.3, lastValueR > 0.3 {
+            if lastValueD > 0.3, lastValueL > 0.3 {
+                changedRatio = scrollRatioChange(ratio * 1.5)
+                print("naname")
+            }
             // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
             if direction == "right" {
                 operateView.frame.origin.x += CGFloat(ratioChange) * changedRatio
@@ -576,12 +582,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let operationViewPositionY = self.operateView.frame.origin.y + self.operateView.frame.height / 2
             let distanceFromCentral = pow(Double(operationViewPositionX) - self.positionXY[goalPositionInt[self.i]]![0], 2) + pow(Double(operationViewPositionY) - self.positionXY[goalPositionInt[self.i]]![1], 2)
             if distanceFromCentral < self.acceptableRange * self.acceptableRange {
-                print("クリア")
                 self.time = self.time + 1
                 self.timeCount.value = Float(self.time)
 
                 if self.time > 60 {
-                    print("クリア2")
                     AudioServicesPlaySystemSound(self.sound)
                     if self.i < goalPositionInt.count - 1 {
                         self.transparentView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
@@ -603,9 +607,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
                         } else {
                             self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
-                            let ID: Double = log2(Double(self.drawView.halfDistance) / Double(self.drawView.radius) + 1)
-                            let TP: Double = ID * 13 / Double(self.workTime - 12)
-                            self.goalLabel.text = "終了." + String(self.workTime) + "sかかった." + "ID:\(ID),TP:\(TP)"
+                            var ID: Double = log2(Double(self.drawView.halfDistance) / Double(self.drawView.radius) + 1)
+                            var TP: Double = ID * 9 / Double(self.workTime - 8)
+                            ID = round(ID * 10) / 10
+                            TP = round(TP * 10) / 10
+                            self.goalLabel.text = "終了." + String(self.workTime) + "s." + "TP:\(TP),ID:\(ID)"
                             print("ID:\(ID),TP:\(TP)")
                         }
 
@@ -730,7 +736,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // print("mouthLeft", mouthLeft)
                 browDownLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[762][1], maxFaceAUVertex: 0.043554213, minFaceAUVertex: 0.04667869)
             }
-            print(browInnerUp)
             if browInnerUp > browDownLeft {
                 upScrollMainThread(ratio: CGFloat(browInnerUp))
             } else {
@@ -825,13 +830,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case 4:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("hands", for: .normal)
-                print("hands:", self.joystickY)
                 if self.touched == true {
-                    self.operateView.frame.origin.x += CGFloat(self.joystickX * joystickVelocityMultiplier)
-                    self.operateView.frame.origin.y -= CGFloat(self.joystickY * joystickVelocityMultiplier)
+                    self.operateView.frame.origin.x = 300 + CGFloat(self.joystickX * joystickVelocityMultiplier) * 50
+                    self.operateView.frame.origin.y = 400 - CGFloat(self.joystickY * joystickVelocityMultiplier) * 50
                 }
                 self.touched = false
             }
+//            DispatchQueue.main.async {
+//                self.buttonLabel.setTitle("hands", for: .normal)
+//                if self.touched == true {
+//                    self.operateView.frame.origin.x += CGFloat(self.joystickX * joystickVelocityMultiplier)
+//                    self.operateView.frame.origin.y -= CGFloat(self.joystickY * joystickVelocityMultiplier)
+//                }
+//                self.touched = false
+//            }
         case 5:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("ripRoll", for: .normal)

@@ -9,11 +9,12 @@
 import Darwin
 import UIKit
 // let goalPositionInt: [Int] = [9, 11, 8, 12, 7, 13, 40, 13]
-let goalPositionInt: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
+// let goalPositionInt: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
+let goalPositionInt: [Int] = [6, 2, 7, 3, 8, 4, 0, 5, 1]
 class DrawView: UIView {
     var radius: CGFloat = 40
     var halfDistance: Double = 200
-    var targetNumber: Int = 13
+    var targetNumber: Int = 9
     var positionXY: [Int: [Double]] = [:]
     let userDefaults = UserDefaults.standard
 
