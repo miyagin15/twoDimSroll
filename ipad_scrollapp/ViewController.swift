@@ -80,10 +80,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             inputMethodString = "position"
             inputMethodLabel.setTitle("position", for: .normal)
             return
-//        } else if inputMethodString == "position" {
-//            inputMethodString = "p_mouse"
-//            inputMethodLabel.setTitle("p_mouse", for: .normal)
-//            return
         } else if inputMethodString == "position" {
             inputMethodString = "velocity"
             inputMethodLabel.setTitle("velocity", for: .normal)
@@ -92,15 +88,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     @IBOutlet var handsSlider: UISlider!
-    // 値を端末に保存するために宣言
     let userDefaults = UserDefaults.standard
     @IBAction func deleteData(_: Any) {
         nowgoal_Data = []
         i = 0
         time = 0
         goalLabel.text = String(goalPositionInt[i])
-//        myCollectionView.contentOffset.x = firstStartPosition
-//        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
+        operateView.frame.origin = firstStartPosition
+        userDefaults.set(operateView.frame.origin.x, forKey: "nowOperateViewPositionX")
+        userDefaults.set(operateView.frame.origin.y, forKey: "nowOperateViewPositionY")
         dataAppendBool = true
         // views削除
         removeAllSubviews(parentView: transparentView)
@@ -116,16 +112,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var firstStartPosition: CGPoint = CGPoint(x: 300, y: 330)
 
     @IBAction func startButton(_: Any) {
-        // nowgoal_Data = []
         i = 0
         time = 0
         goalLabel.text = String(goalPositionInt[i])
         operateView.frame.origin = firstStartPosition
         userDefaults.set(operateView.frame.origin.x, forKey: "nowOperateViewPositionX")
         userDefaults.set(operateView.frame.origin.y, forKey: "nowOperateViewPositionY")
-
-//        myCollectionView.contentOffset.x = firstStartPosition
-//        userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         dataAppendBool = true
         removeAllSubviews(parentView: transparentView)
     }
@@ -145,12 +137,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return configuration
     }()
 
-    // var NetWork = NetWorkViewController()
-    // ゴールの目標セルを決める
-    // var goalPositionInt: [Int] = [15, 14, 13, 12, 11, 10, 20, 16, 17, 18, 19]
-    // ゴールの目標位置を決める.数だけは合わせる必要がある
-    // var goalPosition: [Int] = [9, 3, 10, 4, 11, 5, 12, 6, 0, 7, 1, 8, 2]
-
     private var tapData: [[Float]] = [[]]
     private var nowgoal_Data: [Float] = []
     let callibrationArr: [String] = ["口左", "口右", "口上", "口下", "頰右", "頰左", "眉上", "眉下", "右笑", "左笑", "上唇", "下唇", "普通"]
@@ -168,7 +154,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let functionalExpressionVerticalSlider = UISlider(frame: CGRect(x: 450, y: 300, width: 350, height: 30))
     let functionalExpressionVerticalLabel = UILabel(frame: CGRect(x: 450, y: 50, width: 350, height: 30))
 
-    // let centerOfRipView = UIView(frame: CGRect(x: 350, y: 500, width: 10, height: 10))
     var acceptableRange: Double!
     var drawView: DrawView!
 
@@ -200,12 +185,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         createTargetView()
         createOperateView()
 
-        // centerOfRipView.backgroundColor = UIColor.blue
-        // goalView.addSubview(centerOfRipView)
-
         sceneView.delegate = self
-        // myCollectionView.contentOffset.x = firstStartPosition
-        // userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         //timeInterval秒に一回update関数を動かす
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
 
@@ -233,9 +213,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
         skView.ignoresSiblingOrder = true
-        //    skView.showsFPS = true
-        //    skView.showsNodeCount = true
-        //    skView.showsPhysics = true
     }
 
     @objc func update() {
@@ -245,7 +222,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     private func createTargetView() {
-        // 二次元の目標地点を追加
+        // 二次元の目標地点を生成
         goalView.addSubview(drawView)
         positionXY = drawView.getPosition(frame: goalView.bounds)
         for (key, value) in positionXY {
@@ -275,48 +252,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func decideGoalpositionTimeCount() {
         goalLabel.text = String(goalPositionInt[0])
-//        for i in 0 ..< goalPositionInt.count {
-//            goalPosition[i] = goalPositionInt[i] * 100 - 200
-//        }
         timeCount.maximumValue = 60
         timeCount.minimumValue = 0
         timeCount.value = 0
     }
 
-//    private func createGoalView() {
-//        view.addSubview(Utility.createGoalView(directionString: "horizonal")
-//        )
-//    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         sceneView.session.run(defaultConfiguration)
-        // NetWork.startConnection(to: "a")
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         sceneView.session.pause()
-        // NetWork.stopConnection()
     }
 
-    // LPFの比率
     var LPFRatio: CGFloat = 0.5
-
     var lastValueR: CGFloat = 0
     var maxValueR: CGFloat = 0
-
     var lastValueL: CGFloat = 0
     var maxValueL: CGFloat = 0
-
     var lastValueU: CGFloat = 0
     var maxValueU: CGFloat = 0
-
     var lastValueD: CGFloat = 0
     var maxValueD: CGFloat = 0
-
     private func commonScroll(ratio: CGFloat, direction: String) {
         var restrictViewRange: CGFloat = 0
         var directionSign: CGFloat = 1
@@ -346,7 +305,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 return
             }
         }
-
         var outPutLPF_R = LPFRatio * lastValueR + (1 - LPFRatio) * ratio
         var outPutLPF_L = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
         var outPutLPF_U = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
@@ -385,13 +343,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         if inputMethodString == "velocity" {
             var changedRatio = scrollRatioChange(ratio)
-//            if lastValueD > 0.3, lastValueL > 0.3 || lastValueU > 0.3, lastValueL > 0.3 ||
-//                lastValueD > 0.3, lastValueR > 0.3 || lastValueU > 0.3, lastValueR > 0.3 {
-            if lastValueD > 0.3, lastValueL > 0.3 {
-                changedRatio = scrollRatioChange(ratio * 1.5)
-                print("naname")
+            // mouth only
+            if changeNum == 2 {
+                if lastValueD > 0.3, lastValueL > 0.3 {
+                    changedRatio = scrollRatioChange(ratio * 1.5)
+                    print("DL")
+                }
+                if lastValueD > 0.3, lastValueR > 0.3 {
+                    changedRatio = scrollRatioChange(ratio * 1.5)
+                    print("DR")
+                }
+                if lastValueU > 0.3, lastValueR > 0.3 {
+                    changedRatio = scrollRatioChange(ratio * 1.5)
+                    print("UR")
+                }
+                if lastValueU > 0.3, lastValueL > 0.3 {
+                    changedRatio = scrollRatioChange(ratio * 1.5)
+                    print("UL")
+                }
             }
-            // self.myCollectionView.contentOffset = CGPoint(x: self.myCollectionView.contentOffset.x + 10 * changedRatio * CGFloat(self.ratioChange), y: 0)
             if direction == "right" {
                 operateView.frame.origin.x += CGFloat(ratioChange) * changedRatio
             } else if direction == "left" {
@@ -488,9 +458,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func scrollRatioChange(_ ratioValue: CGFloat) -> CGFloat {
         var changeRatio: CGFloat = 0
-        // y = 1.5x^2
-        // changeRatio = 1.5 * ratioValue * ratioValue
-
 //        if ratioValue < 0.25 {
 //            changeRatio = ratioValue * 0.2
 //        } else if ratioValue > 0.55 {
@@ -499,23 +466,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //            changeRatio = ratioValue - 0.25 + 0.05
 //        }
         changeRatio = tanh((ratioValue * 3 - 1.5 - 0.8) * 3.14 / 2) * 0.7 + 0.7
-
-        // changeRatio = ratioValue
-
-//        if ratioValue < 0.55 {
-//            changeRatio = 0.10
-//        } else if ratioValue > 0.55 {
-//            changeRatio = 1
-//        }
-
-        // print(changeRatio, "changeRatio")
-//        if ratioValue < 0.25 {
-//            changeRatio = ratioValue * 0.2
-//        } else if ratioValue > 0.55 {
-//            changeRatio = ratioValue * 1.5
-//        } else {
-//            changeRatio = ratioValue
-//        }
         return changeRatio
     }
 
@@ -537,12 +487,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var time: Int = 0
     //tarcking状態
     let sound: SystemSoundID = 1013
-
     var distanceAtXYPoint: Float32 = Float32(0)
     var dataAppendBool = true
     let widthIpad: Float = 1194.0
     let heightIpad: Float = 834.0
-
     var handsSliderValue: Float = 0
     var workTime: Float = 0
     var transTrans = CGAffineTransform() // 移動
@@ -550,33 +498,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         guard let faceAnchor = anchor as? ARFaceAnchor else {
             return
         }
-
         // print(faceAnchor.transform.columns.3)
-
-        //  認識していたら青色に
         DispatchQueue.main.async {
-            // print(self.tableView.contentOffset.y)
             self.inputClutchView.backgroundColor = UIColor.red
             self.tracking.backgroundColor = UIColor.blue
         }
         // 顔のxyz位置
         // print(faceAnchor.transform.columns.3.x, faceAnchor.transform.columns.3.y, faceAnchor.transform.columns.3.z)
-
-        //  認識していたら青色に
         DispatchQueue.main.async {
             if self.nowgoal_Data.count % ProductOfColumnsAndFps == 0 {
                 self.orietationLabel.text = String(Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime)
-                //                self.userDefaults.set(self.myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
-                // print(self.tableView.contentOffset.y)
                 if (Float(self.nowgoal_Data.count / ProductOfColumnsAndFps) - self.workTime) > Float(Fps) {
                     self.inputClutchView.backgroundColor = UIColor.white
                 }
             }
         }
-
+        // 判定処理
         DispatchQueue.main.async {
-            //        print(positionXY[self.i])
-            //        let goal = goalPosition[self.i]
             // frame.originはviewの左上なことに注意
             let operationViewPositionX = self.operateView.frame.origin.x + self.operateView.frame.width / 2
             let operationViewPositionY = self.operateView.frame.origin.y + self.operateView.frame.height / 2
@@ -642,9 +580,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     self.nowgoal_Data.append(Float(self.functionalExpression.value))
                     self.nowgoal_Data.append(Float(self.functionalExpressionVerticalSlider.value))
                 }
-                // print(Float(self.tableViewPosition))
-                // データをパソコンに送る(今の場所と目標地点)
-                // self.NetWork.send(message: [Float(self.tableViewPosition),self.goalPosition[self.i]])
             }
         }
 
@@ -655,8 +590,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("MouthRL_browUD", for: .normal)
             }
-            let mouthLeftBS = faceAnchor.blendShapes[.mouthLeft] as! Float
-            let mouthRightBS = faceAnchor.blendShapes[.mouthRight] as! Float
             var mouthLeft: Float = 0
             var mouthRight: Float = 0
             if callibrationUseBool == true {
@@ -668,8 +601,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 // print("mouthLeft", mouthLeft)
                 mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[405][0], maxFaceAUVertex: -0.004787985, minFaceAUVertex: -0.0196867)
             }
-
-            // print(mouthLeft, mouthRight)
             if mouthLeft > mouthRight {
                 leftScrollMainThread(ratio: CGFloat(mouthLeft))
 
