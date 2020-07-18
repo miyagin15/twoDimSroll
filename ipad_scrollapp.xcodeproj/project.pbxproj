@@ -20,6 +20,10 @@
 		5E2DC57E238BB1410012A8AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E2DC57C238BB1410012A8AD /* LaunchScreen.storyboard */; };
 		5E2DC589238BB1410012A8AD /* ipad_scrollappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC588238BB1410012A8AD /* ipad_scrollappTests.swift */; };
 		5E2DC594238BB1410012A8AD /* ipad_scrollappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */; };
+		5EFBE61E24BD77AE0073117A /* ARJoystickSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBE61D24BD77AE0073117A /* ARJoystickSKScene.swift */; };
+		5EFBE62024BD78510073117A /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBE61F24BD78510073117A /* AnalogJoystick.swift */; };
+		5EFBE62224BD78650073117A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBE62124BD78650073117A /* Extensions.swift */; };
+		5EFBE62424BD786B0073117A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBE62324BD786A0073117A /* Constants.swift */; };
 		684E2C8AA591A88248009CC2 /* Pods_ipad_scrollappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */; };
 		6F40FD59C5DE2025AB739259 /* Pods_ipad_scrollappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D052AF692499B7D01BB3950F /* Pods_ipad_scrollappTests.framework */; };
 		9EE6279199489A6373A05E2D /* Pods_ipad_scrollapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE890EB32FEA0B5F50274BCB /* Pods_ipad_scrollapp.framework */; };
@@ -64,6 +68,10 @@
 		5E2DC58F238BB1410012A8AD /* ipad_scrollappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ipad_scrollappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2DC593238BB1410012A8AD /* ipad_scrollappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ipad_scrollappUITests.swift; sourceTree = "<group>"; };
 		5E2DC595238BB1410012A8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFBE61D24BD77AE0073117A /* ARJoystickSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARJoystickSKScene.swift; sourceTree = "<group>"; };
+		5EFBE61F24BD78510073117A /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
+		5EFBE62124BD78650073117A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5EFBE62324BD786A0073117A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63590B26C82731286052026E /* Pods_ipad_scrollappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ipad_scrollappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		649228DFB5586FAFD745E6FF /* Pods-ipad_scrollappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollappTests.debug.xcconfig"; path = "Target Support Files/Pods-ipad_scrollappTests/Pods-ipad_scrollappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		890D7E8C29BC24D1E9F3E89B /* Pods-ipad_scrollapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ipad_scrollapp.release.xcconfig"; path = "Target Support Files/Pods-ipad_scrollapp/Pods-ipad_scrollapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +150,10 @@
 				5E2DC571238BB13E0012A8AD /* AppDelegate.swift */,
 				5E2DC573238BB13E0012A8AD /* art.scnassets */,
 				5E2DC575238BB13E0012A8AD /* ViewController.swift */,
+				5EFBE61F24BD78510073117A /* AnalogJoystick.swift */,
+				5EFBE61D24BD77AE0073117A /* ARJoystickSKScene.swift */,
+				5EFBE62124BD78650073117A /* Extensions.swift */,
+				5EFBE62324BD786A0073117A /* Constants.swift */,
 				5E11C420245C14F20025F440 /* DrawView.swift */,
 				5E21C6B723C3130F0040767A /* Utility.swift */,
 				5E0AB8242394F35A00C8F2D0 /* CollectionViewCell.swift */,
@@ -406,8 +418,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2DC576238BB13E0012A8AD /* ViewController.swift in Sources */,
+				5EFBE62424BD786B0073117A /* Constants.swift in Sources */,
+				5EFBE62024BD78510073117A /* AnalogJoystick.swift in Sources */,
+				5EFBE61E24BD77AE0073117A /* ARJoystickSKScene.swift in Sources */,
 				5E0AB8292397D37400C8F2D0 /* CalibrationViewController.swift in Sources */,
 				5E11C421245C14F30025F440 /* DrawView.swift in Sources */,
+				5EFBE62224BD78650073117A /* Extensions.swift in Sources */,
 				5E21C6B823C3130F0040767A /* Utility.swift in Sources */,
 				5E2DC572238BB13E0012A8AD /* AppDelegate.swift in Sources */,
 				5E0AB82B239896B100C8F2D0 /* VerticalViewController.swift in Sources */,

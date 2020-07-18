@@ -172,6 +172,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var acceptableRange: Double!
     var drawView: DrawView!
 
+    lazy var skView: SKView = {
+        let view = SKView()
+        view.isMultipleTouchEnabled = true
+        view.backgroundColor = .clear
+        view.isHidden = false
+        return view
+    }()
+
+    var joystickBackView = UIView(frame: CGRect(x: 800, y: 500, width: 150, height: 150))
+    var joystickX: CGFloat = 0.0
+    var joystickY: CGFloat = 0.0
+    var touched: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         functionalExpressionVerticalSlider.minimumValue = -1
@@ -196,6 +208,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // userDefaults.set(myCollectionView.contentOffset.x, forKey: "nowCollectionViewPosition")
         //timeInterval秒に一回update関数を動かす
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+
+        joystickBackView.backgroundColor = UIColor.white
+        view.addSubview(joystickBackView)
+        setupSKView()
+        setupSKViewScene()
+        NotificationCenter.default.addObserver(forName: joystickNotificationName, object: nil, queue: OperationQueue.main) { notification in
+            guard let userInfo = notification.userInfo else { return }
+            let data = userInfo["data"] as! AnalogJoystickData
+            self.touched = true
+            print(data.description)
+            self.joystickX = data.velocity.x
+            self.joystickY = data.velocity.y
+        }
+    }
+
+    func setupSKView() {
+        joystickBackView.addSubview(skView)
+        skView.anchor(nil, left: joystickBackView.leftAnchor, bottom: joystickBackView.bottomAnchor, right: joystickBackView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 360)
+    }
+
+    func setupSKViewScene() {
+        let scene = ARJoystickSKScene(size: CGSize(width: joystickBackView.bounds.size.width, height: 360))
+        scene.scaleMode = .resizeFill
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        //    skView.showsFPS = true
+        //    skView.showsNodeCount = true
+        //    skView.showsPhysics = true
     }
 
     @objc func update() {
@@ -209,7 +249,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         goalView.addSubview(drawView)
         positionXY = drawView.getPosition(frame: goalView.bounds)
         for (key, value) in positionXY {
-            print("\(key)はx:\(value[0]),y:\(value[1])です。")
+            print("\(key)はx:\(value[0]),y:\(value[1])です")
         }
     }
 
@@ -602,7 +642,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
 
-        let changeAction = changeNum % 4
+        let changeAction = changeNum % 5
 
         switch changeAction {
         case 0:
@@ -784,18 +824,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         case 4:
             DispatchQueue.main.async {
-                self.buttonLabel.setTitle("cheekPuff", for: .normal)
-            }
-            let cheekR = Utility.faceAURangeChange(faceAUVertex: (faceAnchor.geometry.vertices[697][2] + faceAnchor.geometry.vertices[826][2] + faceAnchor.geometry.vertices[839][2]) / 3, maxFaceAUVertex: callibrationPosition[4], minFaceAUVertex: callibrationOrdinalPosition[4])
-            let cheekL = Utility.faceAURangeChange(faceAUVertex: (faceAnchor.geometry.vertices[245][2] + faceAnchor.geometry.vertices[397][2] + faceAnchor.geometry.vertices[172][2]) / 3, maxFaceAUVertex: callibrationPosition[5], minFaceAUVertex: callibrationOrdinalPosition[5])
-//            if cheekR < 0.1, cheekL < 0.1 {
-//                return
-//            }
-            // print(cheekL, cheekR, faceAnchor.geometry.vertices[24][0])
-            if cheekL > cheekR, faceAnchor.geometry.vertices[24][0] > 0 {
-                leftScrollMainThread(ratio: CGFloat(cheekL))
-            } else if cheekR > cheekL, faceAnchor.geometry.vertices[24][0] < 0 {
-                rightScrollMainThread(ratio: CGFloat(cheekR))
+                self.buttonLabel.setTitle("hands", for: .normal)
+                print("hands:", self.joystickY)
+                if self.touched == true {
+                    self.operateView.frame.origin.x += CGFloat(self.joystickX * joystickVelocityMultiplier)
+                    self.operateView.frame.origin.y -= CGFloat(self.joystickY * joystickVelocityMultiplier)
+                }
+                self.touched = false
             }
         case 5:
             DispatchQueue.main.async {
