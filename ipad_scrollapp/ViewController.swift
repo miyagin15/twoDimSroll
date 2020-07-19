@@ -344,7 +344,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if inputMethodString == "velocity" {
             var changedRatio = scrollRatioChange(ratio)
             // mouth only
-            if changeNum == 2 {
+            if changeNum == 2 || changeNum == 4 {
                 if lastValueD > 0.3, lastValueL > 0.3 {
                     changedRatio = scrollRatioChange(ratio * 1.5)
                     print("DL")
