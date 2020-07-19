@@ -267,7 +267,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
 
-    var LPFRatio: CGFloat = 0.5
+    var LPFRatio: CGFloat = 0.9
     var lastValueR: CGFloat = 0
     var maxValueR: CGFloat = 0
     var lastValueL: CGFloat = 0
@@ -372,6 +372,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 operateView.frame.origin.y += CGFloat(ratioChange) * changedRatio
             }
         } else if inputMethodString == "position" {
+            // 遠くに動かす必要がない位置操作
+//            if direction == "right" {
+//                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
+//            } else if direction == "left" {
+//                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
+//            } else if direction == "up" {
+//                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
+//            } else if direction == "down" {
+//                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
+//            }
+//            return
+            // 　一次元の時と同じ位置操作
             if (direction == "left") || (direction == "right") {
                 if maxValueR < outPutLPF_LR {
                     maxValueR = outPutLPF_LR
@@ -640,8 +652,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("mouthCentral", for: .normal)
             }
-            let mouthLeftBS = faceAnchor.blendShapes[.mouthLeft] as! Float
-            let mouthRightBS = faceAnchor.blendShapes[.mouthRight] as! Float
             var mouthLeft: Float = 0
             var mouthRight: Float = 0
             mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[0], minFaceAUVertex: callibrationOrdinalPosition[0])
@@ -706,10 +716,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 rightScrollMainThread(ratio: CGFloat(mouthRight))
                 xMove = mouthRight
             }
-            DispatchQueue.main.async {
-                self.operateView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
-//                self.centerOfRipView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
-            }
+//            DispatchQueue.main.async {
+//                self.operateView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
+//            }
 
         case 4:
 //            DispatchQueue.main.async {
