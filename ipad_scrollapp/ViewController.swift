@@ -19,7 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var changeNum = 0
     var callibrationUseBool = true
 
-    var inputMethodString = "velocity"
+    var inputMethodString = "position"
 
     // 顔を認識できている描画するView
     @IBOutlet var tracking: UIView!
@@ -177,7 +177,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         goalView.addSubview(functionalExpressionVerticalSlider)
         goalView.addSubview(functionalExpressionVerticalLabel)
 
-        decideGoalpositionTimeCount()
+        decideGoalpositionTimeCount(maxTime: dwellTime)
         initialCallibrationSettings()
         drawView = DrawView(frame: goalView.bounds)
         acceptableRange = Double(drawView.radius)
@@ -250,9 +250,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
 
-    private func decideGoalpositionTimeCount() {
+    private func decideGoalpositionTimeCount(maxTime _: Int) {
         goalLabel.text = String(goalPositionInt[0])
-        timeCount.maximumValue = 60
+        timeCount.maximumValue = Float(dwellTime)
         timeCount.minimumValue = 0
         timeCount.value = 0
     }
@@ -267,7 +267,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
 
-    var LPFRatio: CGFloat = 0.9
+    var LPFRatio: CGFloat = 0.1
     var lastValueR: CGFloat = 0
     var maxValueR: CGFloat = 0
     var lastValueL: CGFloat = 0
@@ -362,25 +362,28 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     print("UL")
                 }
             }
-            if direction == "right" {
-                operateView.frame.origin.x += CGFloat(ratioChange) * changedRatio
-            } else if direction == "left" {
-                operateView.frame.origin.x -= CGFloat(ratioChange) * changedRatio
-            } else if direction == "up" {
-                operateView.frame.origin.y -= CGFloat(ratioChange) * changedRatio
-            } else if direction == "down" {
-                operateView.frame.origin.y += CGFloat(ratioChange) * changedRatio
-            }
         } else if inputMethodString == "position" {
             // 遠くに動かす必要がない位置操作
-            if direction == "right" {
-                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
-            } else if direction == "left" {
-                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
-            } else if direction == "up" {
-                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
-            } else if direction == "down" {
-                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
+            if changeNum == 2 {
+                if direction == "right" {
+                    operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
+                } else if direction == "left" {
+                    operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
+                } else if direction == "up" {
+                    operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 70
+                } else if direction == "down" {
+                    operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 70
+                }
+            } else {
+                if direction == "right" {
+                    operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
+                } else if direction == "left" {
+                    operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
+                } else if direction == "up" {
+                    operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 50
+                } else if direction == "down" {
+                    operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 50
+                }
             }
             return
             // 　一次元の時と同じ位置操作
@@ -535,7 +538,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.time = self.time + 1
                 self.timeCount.value = Float(self.time)
 
-                if self.time > 60 {
+                if self.time > dwellTime {
                     AudioServicesPlaySystemSound(self.sound)
                     if self.i < goalPositionInt.count - 1 {
                         self.transparentView.addSubview(self.drawView.clearDraw(number: goalPositionInt[self.i]))
@@ -558,7 +561,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         } else {
                             self.workTime = Float(self.nowgoal_Data.count / ProductOfColumnsAndFps)
                             var ID: Double = log2(Double(self.drawView.halfDistance) / Double(self.drawView.radius) + 1)
-                            var TP: Double = ID * 9 / Double(self.workTime - 8)
+                            var TP: Double = ID * 9 / Double(self.workTime - 4)
                             ID = round(ID * 10) / 10
                             TP = round(TP * 10) / 10
                             self.goalLabel.text = "終了." + String(self.workTime) + "s." + "TP:\(TP),ID:\(ID)"

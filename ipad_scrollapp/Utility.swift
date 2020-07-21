@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 let numberColumnsOfCsvFile: Int = 6
 let Fps: Int = 60
+let dwellTime: Int = 30 // 0.5s
 let ProductOfColumnsAndFps: Int = numberColumnsOfCsvFile * Fps
 
 let firstStartPosition: CGFloat = 800
