@@ -237,10 +237,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         goalView.addSubview(operateView)
     }
 
+    // 唇が右max/唇上max
+    var ellipseRatioU:Float
+    var ellipseRatioD:Float
     private func initialCallibrationSettings() {
         for x in 0 ... 11 {
             if let value = userDefaults.string(forKey: callibrationArr[x]) {
                 callibrationPosition[x] = Float(value)!
+                if callibrationArr[x] == "口上" {
+                    ellipseRatioU=callibrationPosition[0]/callibrationPosition[x]
+                    callibrationPosition[x] = callibrationPosition[0]
+                }else if callibrationArr[x] == "口下"{
+                    ellipseRatioD=callibrationPosition[0]/callibrationPosition[x]
+                    callibrationPosition[x] = callibrationPosition[0]
+                }
             } else {
                 print("no value", x)
             }
@@ -363,18 +373,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
         } else if inputMethodString == "position" {
+            if direction == "right" {
+                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
+            } else if direction == "left" {
+                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
+            } else if direction == "up" {
+                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 50 * self.ellipseRatioU
+            } else if direction == "down" {
+                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 50 * self.ellipseRatioD
+            }
             // 遠くに動かす必要がない位置操作
             if changeNum == 2 {
-                if direction == "right" {
-                    operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
-                } else if direction == "left" {
-                    operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
-                } else if direction == "up" {
-                    operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 70
-                } else if direction == "down" {
-                    operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 70
-                }
-            } else {
                 if direction == "right" {
                     operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
                 } else if direction == "left" {
