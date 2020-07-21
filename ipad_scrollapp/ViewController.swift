@@ -373,16 +373,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         } else if inputMethodString == "position" {
             // 遠くに動かす必要がない位置操作
-//            if direction == "right" {
-//                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
-//            } else if direction == "left" {
-//                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
-//            } else if direction == "up" {
-//                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
-//            } else if direction == "down" {
-//                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
-//            }
-//            return
+            if direction == "right" {
+                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
+            } else if direction == "left" {
+                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
+            } else if direction == "up" {
+                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
+            } else if direction == "down" {
+                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
+            }
+            return
             // 　一次元の時と同じ位置操作
             if (direction == "left") || (direction == "right") {
                 if maxValueR < outPutLPF_LR {
