@@ -808,6 +808,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         documentInteraction.presentOpenInMenu(from: CGRect(x: 10, y: 10, width: 100, height: 50), in: view, animated: true)
         nowgoal_Data = []
         repeatNumber = 1
-        repeatNumberLabel.text = String(repeatNumber) + "回目"
+        repeatNumberLabel.text = String(repeatNumber) + "回目" + String(ratioChange)
     }
 }
