@@ -34,9 +34,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     // スクロール量を調整するSlider
-    var ratioChange: Float = 5.0
+    var ratioChange: Float = 1.0
     @IBAction func ratioChanger(_ sender: UISlider) {
-        ratioChange = sender.value * 10
+        ratioChange = sender.value
     }
 
     @IBOutlet var buttonLabel: UIButton!
@@ -277,7 +277,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
 
-    var LPFRatio: CGFloat = 0.1
+    var LPFRatio: CGFloat = 0.5
     var lastValueR: CGFloat = 0
     var maxValueR: CGFloat = 0
     var lastValueL: CGFloat = 0
@@ -290,31 +290,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         var restrictViewRange: CGFloat = 0
         var directionSign: CGFloat = 1
         var realRatioValue = ratio
-        if direction == "right" {
-            restrictViewRange = 600
-            if operateView.frame.origin.x > restrictViewRange {
-                return
-            }
-        } else if direction == "left" {
-            restrictViewRange = 0
-            if operateView.frame.origin.x < restrictViewRange {
-                return
-            }
-            directionSign = -1
-            realRatioValue = -1 * ratio
-        } else if direction == "up" {
-            restrictViewRange = 0
-            if operateView.frame.origin.y < restrictViewRange {
-                return
-            }
-            directionSign = -1
-            realRatioValue = -1 * ratio
-        } else if direction == "down" {
-            restrictViewRange = 660
-            if operateView.frame.origin.y > restrictViewRange {
-                return
-            }
-        }
         var outPutLPF_R = LPFRatio * lastValueR + (1 - LPFRatio) * ratio
         var outPutLPF_L = LPFRatio * lastValueL + (1 - LPFRatio) * ratio
         var outPutLPF_U = LPFRatio * lastValueU + (1 - LPFRatio) * ratio
@@ -352,6 +327,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         if inputMethodString == "velocity" {
+            if direction == "right" {
+                restrictViewRange = 600
+                if operateView.frame.origin.x > restrictViewRange {
+                    return
+                }
+            } else if direction == "left" {
+                restrictViewRange = 0
+                if operateView.frame.origin.x < restrictViewRange {
+                    return
+                }
+                directionSign = -1
+                realRatioValue = -1 * ratio
+            } else if direction == "up" {
+                restrictViewRange = 0
+                if operateView.frame.origin.y < restrictViewRange {
+                    return
+                }
+                directionSign = -1
+                realRatioValue = -1 * ratio
+            } else if direction == "down" {
+                restrictViewRange = 660
+                if operateView.frame.origin.y > restrictViewRange {
+                    return
+                }
+            }
             var changedRatio = scrollRatioChange(ratio)
             // mouth only
             if changeNum == 2 || changeNum == 4 {
@@ -384,24 +384,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         } else if inputMethodString == "position" {
             if direction == "right" {
-                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
+                operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
             } else if direction == "left" {
-                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
+                operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
             } else if direction == "up" {
-                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 50
+                operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
             } else if direction == "down" {
-                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 50
+                operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
             }
             // 遠くに動かす必要がない位置操作
             if changeNum == 2 {
                 if direction == "right" {
-                    operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
+                    operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 250
                 } else if direction == "left" {
-                    operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 50
+                    operateView.frame.origin.x = goalView.frame.width / 2 - CGFloat(ratioChange) * lastValueL * 250
                 } else if direction == "up" {
-                    operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 60
+                    operateView.frame.origin.y = goalView.frame.height / 2 - CGFloat(ratioChange) * lastValueU * 250
                 } else if direction == "down" {
-                    operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 50
+                    operateView.frame.origin.y = goalView.frame.height / 2 + CGFloat(ratioChange) * lastValueD * 250
                 }
             }
             return
@@ -455,9 +455,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func rightScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.operateView.frame.origin.x > 600 {
-                return
-            }
             self.commonScroll(ratio: ratio, direction: "right")
         }
     }
@@ -465,27 +462,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // left scroll
     private func leftScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.operateView.frame.origin.x < 0 {
-                return
-            }
             self.commonScroll(ratio: ratio, direction: "left")
         }
     }
 
     private func upScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.operateView.frame.origin.y < 0 {
-                return
-            }
             self.commonScroll(ratio: ratio, direction: "up")
         }
     }
 
     private func downScrollMainThread(ratio: CGFloat) {
         DispatchQueue.main.async {
-            if self.operateView.frame.origin.y > 660 {
-                return
-            }
             self.commonScroll(ratio: ratio, direction: "down")
         }
     }
@@ -617,7 +605,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
 
-        let changeAction = changeNum % 5
+        let changeAction = changeNum % 4
 
         switch changeAction {
         case 0:
@@ -670,41 +658,41 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 downScrollMainThread(ratio: CGFloat(browDownLeft))
             }
 
+//        case 2:
+//            DispatchQueue.main.async {
+//                self.buttonLabel.setTitle("mouthCentral", for: .normal)
+//            }
+//            var mouthLeft: Float = 0
+//            var mouthRight: Float = 0
+//            mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[0], minFaceAUVertex: callibrationOrdinalPosition[0])
+//            // print("mouthLeft", mouthLeft)
+//            mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[1], minFaceAUVertex: callibrationOrdinalPosition[1])
+//
+//            if mouthLeft > mouthRight {
+//                leftScrollMainThread(ratio: CGFloat(mouthLeft))
+//
+//            } else if mouthRight > mouthLeft {
+//                rightScrollMainThread(ratio: CGFloat(mouthRight))
+//            }
+//            var mouthUp: Float = 0
+//            var mouthDown: Float = 0
+//            if callibrationUseBool == true {
+//                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[2], minFaceAUVertex: callibrationOrdinalPosition[2])
+//                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[3], minFaceAUVertex: callibrationOrdinalPosition[3])
+//            } else {
+//                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.03719348, minFaceAUVertex: -0.04107782)
+//                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.04889179, minFaceAUVertex: -0.04107782)
+//            }
+            ////             if mouthUp < 0.1, mouthDown < 0.1 {
+            ////                 return
+            ////             }
+//            if mouthUp > mouthDown {
+//                upScrollMainThread(ratio: CGFloat(mouthUp))
+//            } else {
+//                downScrollMainThread(ratio: CGFloat(mouthDown))
+//            }
+
         case 2:
-            DispatchQueue.main.async {
-                self.buttonLabel.setTitle("mouthCentral", for: .normal)
-            }
-            var mouthLeft: Float = 0
-            var mouthRight: Float = 0
-            mouthLeft = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[0], minFaceAUVertex: callibrationOrdinalPosition[0])
-            // print("mouthLeft", mouthLeft)
-            mouthRight = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][0], maxFaceAUVertex: callibrationPosition[1], minFaceAUVertex: callibrationOrdinalPosition[1])
-
-            if mouthLeft > mouthRight {
-                leftScrollMainThread(ratio: CGFloat(mouthLeft))
-
-            } else if mouthRight > mouthLeft {
-                rightScrollMainThread(ratio: CGFloat(mouthRight))
-            }
-            var mouthUp: Float = 0
-            var mouthDown: Float = 0
-            if callibrationUseBool == true {
-                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[2], minFaceAUVertex: callibrationOrdinalPosition[2])
-                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: callibrationPosition[3], minFaceAUVertex: callibrationOrdinalPosition[3])
-            } else {
-                mouthUp = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.03719348, minFaceAUVertex: -0.04107782)
-                mouthDown = Utility.faceAURangeChange(faceAUVertex: faceAnchor.geometry.vertices[24][1], maxFaceAUVertex: -0.04889179, minFaceAUVertex: -0.04107782)
-            }
-//             if mouthUp < 0.1, mouthDown < 0.1 {
-//                 return
-//             }
-            if mouthUp > mouthDown {
-                upScrollMainThread(ratio: CGFloat(mouthUp))
-            } else {
-                downScrollMainThread(ratio: CGFloat(mouthDown))
-            }
-
-        case 3:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("mouthPosition", for: .normal)
             }
@@ -742,7 +730,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //                self.operateView.frame = CGRect(x: self.goalView.frame.width / 2 + CGFloat(xMove) * 250, y: self.goalView.frame.height / 2 + CGFloat(yMove) * 250, width: 10, height: 10)
 //            }
 
-        case 4:
+        case 3:
 //            DispatchQueue.main.async {
 //                self.buttonLabel.setTitle("hands", for: .normal)
 //                if self.touched == true {
@@ -769,7 +757,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
                 self.touched = false
             }
-        case 5:
+        case 4:
             DispatchQueue.main.async {
                 self.buttonLabel.setTitle("ripRoll", for: .normal)
             }
@@ -809,5 +797,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         nowgoal_Data = []
         repeatNumber = 1
         repeatNumberLabel.text = String(repeatNumber) + "回目" + String(ratioChange)
+        workTime = 0
     }
 }

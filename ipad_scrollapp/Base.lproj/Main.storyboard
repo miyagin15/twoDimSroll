@@ -28,7 +28,7 @@
                                     <navigationItem id="lz7-Km-bzS">
                                         <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="QgP-oi-B0q">
-                                            <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="cCL-JD-1Q2">
+                                            <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" id="cCL-JD-1Q2">
                                                 <rect key="frame" x="20" y="8" width="185" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <connections>
