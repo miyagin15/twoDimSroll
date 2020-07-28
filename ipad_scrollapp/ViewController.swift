@@ -372,6 +372,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     print("UL")
                 }
             }
+            if direction == "right" {
+                operateView.frame.origin.x += CGFloat(ratioChange) * changedRatio
+            } else if direction == "left" {
+                operateView.frame.origin.x -= CGFloat(ratioChange) * changedRatio
+            } else if direction == "up" {
+                operateView.frame.origin.y -= CGFloat(ratioChange) * changedRatio
+            } else if direction == "down" {
+                operateView.frame.origin.y += CGFloat(ratioChange) * changedRatio
+            }
+
         } else if inputMethodString == "position" {
             if direction == "right" {
                 operateView.frame.origin.x = goalView.frame.width / 2 + CGFloat(ratioChange) * lastValueR * 50
